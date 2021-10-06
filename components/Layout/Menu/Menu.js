@@ -3,7 +3,7 @@ import styles from './Menu.module.scss'
 
 function Menu() {
   return (
-    <div>
+    <div className={styles['menu']}>
       <Link href="/">
         <a>
           Home

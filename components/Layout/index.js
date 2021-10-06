@@ -1,4 +1,4 @@
-import Content from './Content'
+import ReactPageScroller from 'react-page-scroller'
 import Footer from './Footer'
 import Menu from './Menu'
 
@@ -6,10 +6,10 @@ function Layout({ children }) {
   return (
     <>
       <Menu />
-      <Content>
+      <ReactPageScroller>
         {children}
         <Footer />
-      </Content>
+      </ReactPageScroller>
     </>
   )
 }
