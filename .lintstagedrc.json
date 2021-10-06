@@ -1,0 +1,4 @@
+{
+  "pages/*.js": ["npx next-sitemap", "git add public/sitemap.xml"],
+  "*": ["yarn lint", "yarn format", "yarn style-lint"]
+}

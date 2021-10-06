@@ -1,0 +1,10 @@
+node_modules
+.next
+public
+.*
+!**/*.css
+!**/*.scss
+*.json
+*.woff
+*.woff2
+*.js
