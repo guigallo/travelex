@@ -1,11 +1,11 @@
-import Layout from '@/components/Layout'
-import styles from './PessoaFisica.module.scss'
+import { useTranslations } from 'use-intl'
 
 function PessoaFisica() {
+  const translate = useTranslations('Personal')
   return (
-    <Layout>
-      <div>pessoa fisica</div>
-    </Layout>
+    <>
+      <div>{translate('title')}</div>
+    </>
   )
 }
 

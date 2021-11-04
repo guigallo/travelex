@@ -5,4 +5,8 @@ module.exports = withTM({
   redirects: async () => [
     // { permanent: true, source: '/home', destination: '/' },
   ],
+  i18n: {
+    locales: ['pt-BR', 'en-US'],
+    defaultLocale: 'pt-BR',
+  },
 })

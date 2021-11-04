@@ -1,11 +1,11 @@
-import Layout from '@/components/Layout'
-import styles from './Institucional.module.scss'
+import { useTranslations } from 'use-intl'
 
 function Institucional() {
+  const translate = useTranslations('About')
   return (
-    <Layout>
-      <div>institucional</div>
-    </Layout>
+    <>
+      <div>{translate('title')}</div>
+    </>
   )
 }
 

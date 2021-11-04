@@ -1,43 +1,25 @@
-import Link from 'next/link'
-import styles from './Menu.module.scss'
+import React, { useState, useEffect } from 'react'
+import MenuLinks from './MenuLinks'
+import MenuSmall from './MenuSmall'
 
-function Menu() {
+const Menu = () => {
+  const [toggle, setToggle] = useState('')
+  const [visible, setVisible] = useState('menu')
+
+  function toggleMenu() {
+    setToggle(toggle === '' ? 'active' : '')
+  }
+
+  useEffect(() => {
+    setVisible(toggle === 'active' ? '' : 'menu')
+    console.log(visible)
+  }, [toggle])
+
   return (
-    <div className={styles['menu']}>
-      <Link href="/">
-        <a>
-          Home
-        </a>
-      </Link>
-
-      <Link href="/institucional">
-        <a>
-          Institucional
-        </a>
-      </Link>
-
-      <Link href="/cambio/corporativo">
-        <a>
-          Câmbio Corporativo
-        </a>
-      </Link>
-
-      <Link href="/cambio/pessoa-fisica">
-        <a>
-          Câmbio Pessoa Física
-        </a>
-      </Link>
-
-      <a href="/blog" target="_blank">
-        Blog
-      </a>
-
-      <Link href="/cadastro">
-        <a>
-          Abra sua conta
-        </a>
-      </Link>
-    </div>
+    <header>
+      <MenuLinks visible={visible} />
+      <MenuSmall toggleMenu={toggleMenu} visible={visible} />
+    </header>
   )
 }
 

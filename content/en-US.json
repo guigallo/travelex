@@ -1,0 +1,70 @@
+{
+  "Home": {
+    "bannerOne": {
+      "title": "Test 1",
+      "link": "/institucional",
+      "image": "Tente novamente"
+    },
+    "bannerTwo": {
+      "title": "Test 2",
+      "link": "/cambio/corporativo",
+      "image": "Tente novamente 2"
+    },
+    "bannerThree": {
+      "title": "Test 3",
+      "link": "/cambio/pessoa-fisica",
+      "image": "Tente novamente 3"
+    },
+    "FAQ": {
+      "title": "Frequently Asked Questions",
+      "questionOneTitle": "New lines of credit for Travelex Partners Plus customers?",
+      "questionOne": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "questionTwoTitle": "New lines of credit for Travelex Partners Plus customers?",
+      "questionTwo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "questionThreeTitle": "New lines of credit for Travelex Partners Plus customers?",
+      "questionThree": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+    }
+  },
+  "Layout": {
+    "menu": {
+      "about": "About us",
+      "company": "Company Exchange",
+      "personal": "Individual Exchange",
+      "blog": "Blog",
+      "openAccount": "Open Account",
+      "switchLocale": "PT",
+      "currentLocale": "EN"
+    },
+    "footer": {
+      "message": "In case of doubts, commercial or other questions, please contact us. Our team of experts will be happy to assist you.",
+      "copyright": "Travelex Partners. Copyright 2021. All rights reserved.",
+      "FAQ": "FAQ",
+      "compliance": "Compliance",
+      "listen": "Listen",
+      "workWithUs": "Jobs",
+      "telephone": "+55 11 xxxxx-xxxx",
+      "email": "contato@travelexpartners.com.br",
+      "mobileText": "TRAVELEX PARTNERS. IS A LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD TEMPOR STREET ADRESS NAME NUMBER COUNTRY. CALL +55 11 9XXXX XXXX FOR INFOS."
+    }
+  },
+  "About": {
+    "title": "Institutional"
+  },
+  "Corporate": {
+    "title": "Company Exchange",
+    "serviceAnalytics": "Analytics and declarations",
+    "serviceAdvice": "Advice Service",
+    "tradeFinance": "Trade Finance",
+    "tradeService": "Trade Service"
+  },
+  "Personal": {
+    "title": "Personal Exchange",
+    "serviceAnalytics": "Analytics and declarations",
+    "serviceAdvice": "Advice Service",
+    "tradeFinance": "Trade Finance",
+    "tradeService": "Trade Service"
+  },
+  "openAccount": {
+    "title": "Open Account"
+  }
+}

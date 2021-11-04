@@ -1,27 +1,28 @@
-import Layout from '@/components/Layout'
-import styles from './Corporativo.module.scss'
+import { useTranslations } from 'use-intl'
 
 function Hedge() {
-  return <div>Hedge</div>
+  const translate = useTranslations('Corporate')
+  return <div>{translate('title')}</div>
 }
 
 function Corporativo() {
+  const translate = useTranslations('Corporate')
   return (
-    <Layout>
-      <div>
-        <span>Análises, registros e declareções</span>
-      </div>
+    <>
       <Hedge />
       <div>
-        <span>Assessoria e serviços</span>
+        <span>{translate('serviceAnalytics')}</span>
       </div>
       <div>
-        <span>Trade Finance</span>
+        <span>{translate('serviceAdvice')}</span>
       </div>
       <div>
-        <span>Trade Service</span>
+        <span>{translate('tradeFinance')}</span>
       </div>
-    </Layout>
+      <div>
+        <span>{translate('tradeService')}</span>
+      </div>
+    </>
   )
 }
 

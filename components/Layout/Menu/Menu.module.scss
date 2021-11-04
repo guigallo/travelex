@@ -1,4 +1,173 @@
+@import '@/styles/theme';
+
 .menu {
+  background-color: transparent;
+  height: 4.5em;
   position: fixed;
   top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+.toggle {
+  display: none;
+}
+
+.menu-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.menu-logo {
+  height: auto;
+  margin-left: 1em;
+  width: 280px;
+}
+
+.menu-left {
+  display: flex;
+  flex-direction: row;
+}
+
+.menu-links {
+  display: flex;
+  flex-direction: row;
+  padding-right: $padding-horizontal;
+}
+
+.menu-about {
+  padding-right: $padding-horizontal;
+}
+
+.menu-about-border {
+  border-left: 1px $white solid;
+  height: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+.menu-links a {
+  color: $white;
+  font-size: 1.25em;
+  font-weight: 600;
+  padding-right: $padding-horizontal;
+}
+
+.menu-cta-border {
+  border-left: 1px $white solid;
+  height: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+.menu-lang {
+  align-items: center;
+  display: flex;
+  flex: row;
+  font-family: Bebas Neue Regular;
+  margin-top: -1em;
+  padding: 0 $padding-horizontal;
+}
+
+.menu-lang p {
+  color: $gray-blue;
+}
+
+.menu-lang > * {
+  color: $white;
+  margin-left: 1em;
+}
+
+/* small nav */
+.header-small-button {
+  margin: 0;
+  padding: $padding-vertical;
+  z-index: 10;
+}
+
+.menu-small {
+  display: none;
+  width: 100%;
+}
+
+.mobile-logo {
+  display: none;
+}
+
+@media (max-width: $max-width-sm) {
+  .menu {
+    visibility: hidden;
+  }
+
+  .menu-logo {
+    display: none;
+  }
+
+  .menu-wrapper {
+    background-color: $cherry-red;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    position: absolute;
+    width: 100vw;
+    z-index: 5;
+  }
+
+  .menu-links {
+    flex-direction: column;
+    padding: $padding-vertical;
+    width: 100%;
+  }
+
+  .menu-links a {
+    color: $white;
+    font-family: Bebas Neue Regular;
+    font-size: 1.5em;
+  }
+
+  .menu-about-border,
+  .menu-cta-border {
+    display: none;
+  }
+
+  .menu-about {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .menu-left {
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .menu-small {
+    display: block;
+    height: 3em;
+    position: fixed;
+    top: 0;
+    z-index: 6;
+  }
+
+  .menu-mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .mobile-logo {
+    display: block;
+    max-width: 280px;
+    z-index: 11;
+  }
+
+  .menu-lang {
+    justify-content: flex-end;
+  }
+
+  .menu-lang p {
+    color: $white;
+  }
 }

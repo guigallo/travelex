@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Labrador Medium';
+  font-style: italic;
+  font-weight: 500;
+  src: url('fonts/LabradorMediumItalic.woff2') format('woff2'),
+    url('fonts/LabradorMediumItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Labrador Regular';
+  font-style: normal;
+  font-weight: 500;
+  src: url('fonts/LabradorRegular.woff2') format('woff2'),
+    url('fonts/LabradorRegular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Labrador Bold';
+  font-style: normal;
+  font-weight: 500;
+  src: url('fonts/LabradorBold.woff2') format('woff2'),
+    url('fonts/LabradorBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Bebas Neue Regular';
+  font-style: normal;
+  font-weight: 600;
+  src: url('fonts/BebasNeueRegular.woff2') format('woff2'),
+    url('fonts/BebasNeueRegular.woff') format('woff');
+}
