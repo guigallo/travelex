@@ -1,42 +1,28 @@
 @import '@/styles/theme';
 
-.banner {
+.section {
   background: $navy-blue;
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: flex-end;
-  padding-bottom: $padding-vertical * 2;
-  padding-left: $padding-horizontal;
-  padding-right: $padding-horizontal;
-  padding-top: $padding-vertical;
-  width: 100%;
+  padding: $padding-horizontal;
+  position: relative;
 }
 
-.banner-subtitle {
+.section-subtitle {
   color: $white;
   font-family: Bebas Neue Regular;
   font-size: 1.5em;
 }
 
-.title {
-  color: $white;
-  font-family: Bebas Neue Regular;
-  font-size: 2em;
-  padding: $padding-horizontal;
-}
-
 @media (max-width: $max-width-sm) {
-  .banner {
+  .section {
     justify-content: center;
     padding-bottom: $padding-horizontal;
   }
 
-  .title {
-    padding: 0.5em;
-  }
-
-  .banner-subtitle {
+  .section-subtitle {
     color: $white;
     font-family: Bebas Neue Regular;
     font-size: 1em;

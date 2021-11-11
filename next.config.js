@@ -9,4 +9,7 @@ module.exports = withTM({
     locales: ['pt-BR', 'en-US'],
     defaultLocale: 'pt-BR',
   },
+  images: {
+    domains: ['localhost:3000'],
+  },
 })

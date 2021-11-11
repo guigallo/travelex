@@ -1,27 +1,28 @@
+import Banner from '@/components/Banner'
+import Grid from '@/components/Grid'
+import Footer from '@/components/Layout/Footer'
+import Scroller from '@/components/Scroller'
+import Title from '@/components/Title'
+import styles from './Corporativo.module.scss'
 import { useTranslations } from 'use-intl'
-
-function Hedge() {
-  const translate = useTranslations('Corporate')
-  return <div>{translate('title')}</div>
-}
 
 function Corporativo() {
   const translate = useTranslations('Corporate')
+
   return (
     <>
-      <Hedge />
-      <div>
-        <span>{translate('serviceAnalytics')}</span>
-      </div>
-      <div>
-        <span>{translate('serviceAdvice')}</span>
-      </div>
-      <div>
-        <span>{translate('tradeFinance')}</span>
-      </div>
-      <div>
-        <span>{translate('tradeService')}</span>
-      </div>
+      <Scroller>
+        <Banner title={translate('title')} />
+        <div className={styles['section']}>
+          <Title mainTitle={translate('mainTitle')} />
+          <Grid
+            isText
+            subTitle={translate('mainSubtitle')}
+            paragraph={translate('mainParagraph')}
+          />
+        </div>
+        <Footer />
+      </Scroller>
     </>
   )
 }

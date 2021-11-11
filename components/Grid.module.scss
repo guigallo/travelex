@@ -1,0 +1,57 @@
+@import '@/styles/theme';
+
+.grid {
+  display: flex;
+  flex-direction: row;
+}
+
+.grid-left {
+  padding-bottom: $padding-vertical;
+  padding-left: $padding-horizontal * 1.5;
+  padding-right: $padding-horizontal * 1.5;
+  padding-top: $padding-vertical;
+  width: 35%;
+}
+
+.grid-right {
+  padding-left: $padding-horizontal;
+  padding-top: $padding-vertical;
+  width: 65%;
+}
+
+.grid-subtitle {
+  color: $navy-blue;
+  font-family: Bebas Neue Regular;
+  font-size: 2em;
+  padding: $padding-vertical 0 0 $padding-horizontal;
+}
+
+.grid-paragraph {
+  font-size: 1.8em;
+  padding-right: $padding-horizontal * 6;
+  padding-top: $padding-vertical;
+}
+
+.grid-caption {
+  padding-left: $padding-horizontal * 2;
+  padding-right: $padding-horizontal;
+}
+
+@media (max-width: $max-width-sm) {
+  .grid {
+    flex-direction: column;
+  }
+
+  .grid-right,
+  .grid-left {
+    width: 100%;
+  }
+
+  .grid-subtitle {
+    font-size: 1.8em;
+  }
+
+  .grid-paragraph {
+    font-size: 1.5em;
+  }
+}

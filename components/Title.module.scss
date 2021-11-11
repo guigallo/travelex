@@ -1,0 +1,21 @@
+@import '@/styles/theme';
+
+.title {
+  color: $navy-blue;
+  font-family: Bebas Neue Regular;
+  font-size: 4em;
+  padding-bottom: 3em;
+  padding-left: 1.3em;
+  padding-top: $padding-vertical;
+}
+
+.caption {
+  padding: $padding-horizontal;
+  width: 35%;
+}
+
+@media (max-width: $max-width-sm) {
+  .title {
+    font-size: 4em;
+  }
+}
