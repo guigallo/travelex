@@ -131,8 +131,18 @@
 }
 
 .menu-small {
+  @include config-transition-prop(filter);
+
   display: none;
   width: 100%;
+
+  &__light {
+    filter: invert(1);
+  }
+
+  &__dark {
+    filter: invert(0);
+  }
 }
 
 .mobile-logo {

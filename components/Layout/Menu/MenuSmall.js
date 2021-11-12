@@ -1,13 +1,22 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import classNames from 'classnames'
+import { useMenuTheme } from '@/contexts/LayoutContext'
 import mainLogo from '../../../public/images/TravelexBranco.png'
 import styles from './Menu.module.scss'
 import { MenuIcon } from '../../Icons'
 
 const MenuSmall = ({ toggleMenu }) => {
+  const { theme } = useMenuTheme()
+
   return (
-    <nav className={styles['menu-small']}>
+    <nav
+      className={classNames(
+        styles['menu-small'],
+        styles[`menu-small__${theme}`]
+      )}
+    >
       <div className={styles['menu-mobile']}>
         <div className={styles['mobile-logo']}>
           <Link href="/">
