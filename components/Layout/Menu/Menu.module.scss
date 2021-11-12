@@ -7,6 +7,10 @@
   top: 0;
   width: 100%;
   z-index: 5;
+
+  a {
+    @include config-transition-prop(color);
+  }
 }
 
 .toggle {
@@ -20,9 +24,19 @@
 }
 
 .menu-logo {
+  @include config-transition-prop(filter);
+
   height: auto;
   margin-left: 1em;
   width: 280px;
+
+  &__light {
+    filter: invert(1);
+  }
+
+  &__dark {
+    filter: invert(0);
+  }
 }
 
 .menu-left {
@@ -41,9 +55,19 @@
 }
 
 .menu-about-border {
-  border-left: 1px $white solid;
+  @include config-transition-prop(border-left-color);
+
+  border-left: 1px transparent solid;
   height: 2.5em;
   margin-bottom: 0.5em;
+
+  &__light {
+    border-left-color: $black;
+  }
+
+  &__dark {
+    border-left-color: $white;
+  }
 }
 
 .menu-links a {
@@ -54,9 +78,19 @@
 }
 
 .menu-cta-border {
+  @include config-transition-prop(border-left-color);
+
   border-left: 1px $white solid;
   height: 2.5em;
   margin-bottom: 0.5em;
+
+  &__light {
+    border-left-color: $black;
+  }
+
+  &__dark {
+    border-left-color: $white;
+  }
 }
 
 .menu-lang {
@@ -75,6 +109,18 @@
 .menu-lang > * {
   color: $white;
   margin-left: 1em;
+}
+
+.menu-lang-btn {
+  @include config-transition-prop(color);
+
+  &__light {
+    color: $black;
+  }
+
+  &__dark {
+    color: $white;
+  }
 }
 
 /* small nav */
@@ -168,6 +214,18 @@
   }
 
   .menu-lang p {
+    color: $white;
+  }
+}
+
+.light {
+  a {
+    color: $black;
+  }
+}
+
+.dark {
+  a {
     color: $white;
   }
 }

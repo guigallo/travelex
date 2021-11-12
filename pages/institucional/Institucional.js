@@ -1,7 +1,7 @@
 import Banner from '@/components/Banner'
 import Grid from '@/components/Grid'
 import Footer from '@/components/Layout/Footer'
-import Scroller from '@/components/Scroller'
+import Scroller, { ScrollerSection } from '@/components/Scroller'
 import Title from '@/components/Title'
 import styles from './Institucional.module.scss'
 import { useTranslations } from 'use-intl'
@@ -15,21 +15,21 @@ function Institucional() {
     <>
       <Scroller>
         <Banner title={translate('mainTitle')} image={bannerInstitutional} />
-        <div className={styles['section']}>
+        <ScrollerSection menuTheme="light" className={styles['section']}>
           <Title mainTitle={translate('mainTitle')} />
           <Grid
             isText
             subTitle={translate('mainSubtitle')}
             paragraph={translate('mainParagraph')}
           />
-        </div>
-        <div className={styles['img-section']}>
+        </ScrollerSection>
+        <ScrollerSection menuTheme="light" className={styles['img-section']}>
           <Grid
             isImg
             img={imgInstitutional}
             imgCaption={translate('mainImgCaption')}
           />
-        </div>
+        </ScrollerSection>
         <Footer />
       </Scroller>
     </>

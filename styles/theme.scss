@@ -15,3 +15,10 @@ $gray: #bababa;
 $padding-horizontal: 1.5em;
 $padding-vertical: 1.5em;
 $menu-height: 4.5em;
+
+// Transitions
+@mixin config-transition-prop($prop) {
+  transition: $prop 0.5s;
+  transition-delay: 0.5s;
+  will-change: $prop;
+}
