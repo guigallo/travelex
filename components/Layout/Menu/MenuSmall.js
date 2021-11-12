@@ -3,7 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import classNames from 'classnames'
 import { useMenuTheme } from '@/contexts/LayoutContext'
-import mainLogo from '../../../public/images/TravelexBranco.png'
+import mainLogoWhite from '../../../public/images/TravelexBranco.png'
+import mainLogoColorful from '../../../public/images/TravelexLogo.png'
 import styles from './Menu.module.scss'
 import { MenuIcon } from '../../Icons'
 
@@ -21,12 +22,16 @@ const MenuSmall = ({ toggleMenu }) => {
         <div className={styles['mobile-logo']}>
           <Link href="/">
             <a>
-              <Image src={mainLogo} alt="Travelex Logo Mobile" />
+              {theme === 'dark' ? (
+                <Image src={mainLogoWhite} alt="Travelex Logo Mobile" />
+              ) : (
+                <Image src={mainLogoColorful} alt="Travelex Logo Mobile" />
+              )}
             </a>
           </Link>
         </div>
         <button className={styles['header-small-button']} onClick={toggleMenu}>
-          <MenuIcon />
+          <MenuIcon fill={theme === 'dark' ? '#bebebe' : '#221f42'} />
         </button>
       </div>
     </nav>

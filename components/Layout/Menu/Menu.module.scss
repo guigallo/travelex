@@ -24,19 +24,9 @@
 }
 
 .menu-logo {
-  @include config-transition-prop(filter);
-
   height: auto;
   margin-left: 1em;
   width: 280px;
-
-  &__light {
-    filter: invert(1);
-  }
-
-  &__dark {
-    filter: invert(0);
-  }
 }
 
 .menu-left {
@@ -62,11 +52,11 @@
   margin-bottom: 0.5em;
 
   &__light {
-    border-left-color: $black;
+    border-left-color: $blue;
   }
 
   &__dark {
-    border-left-color: $white;
+    border-left-color: $gray-second;
   }
 }
 
@@ -85,11 +75,11 @@
   margin-bottom: 0.5em;
 
   &__light {
-    border-left-color: $black;
+    border-left-color: $blue;
   }
 
   &__dark {
-    border-left-color: $white;
+    border-left-color: $gray-second;
   }
 }
 
@@ -115,11 +105,11 @@
   @include config-transition-prop(color);
 
   &__light {
-    color: $black;
+    color: $blue;
   }
 
   &__dark {
-    color: $white;
+    color: $gray-second;
   }
 }
 
@@ -131,18 +121,8 @@
 }
 
 .menu-small {
-  @include config-transition-prop(filter);
-
   display: none;
   width: 100%;
-
-  &__light {
-    filter: invert(1);
-  }
-
-  &__dark {
-    filter: invert(0);
-  }
 }
 
 .mobile-logo {
@@ -230,12 +210,12 @@
 
 .light {
   a {
-    color: $black;
+    color: $blue;
   }
 }
 
 .dark {
   a {
-    color: $white;
+    color: $gray-second;
   }
 }

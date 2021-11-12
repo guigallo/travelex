@@ -4,7 +4,8 @@ import { useRouter } from 'next/router'
 import { useTranslations } from 'next-intl'
 import classNames from 'classnames'
 import { useMenuTheme } from '@/contexts/LayoutContext'
-import mainLogo from '../../../public/images/TravelexBranco.png'
+import mainLogoWhite from '../../../public/images/TravelexBranco.png'
+import mainLogoColorful from '../../../public/images/TravelexLogo.png'
 import styles from './Menu.module.scss'
 
 function MenuLinks({ visible }) {
@@ -24,7 +25,19 @@ function MenuLinks({ visible }) {
                 styles[`menu-logo__${theme}`]
               )}
             >
-              <Image src={mainLogo} alt="Travelex Logo" layout="responsive" />
+              {theme === 'dark' ? (
+                <Image
+                  src={mainLogoWhite}
+                  alt="Travelex Logo Mobile"
+                  layout="responsive"
+                />
+              ) : (
+                <Image
+                  src={mainLogoColorful}
+                  alt="Travelex Logo Mobile"
+                  layout="responsive"
+                />
+              )}
             </div>
           </a>
         </Link>
