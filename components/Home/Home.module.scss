@@ -28,3 +28,34 @@
     font-size: 1em;
   }
 }
+
+.pagination {
+  bottom: 1rem;
+  display: flex;
+  left: $padding-horizontal * 3;
+  opacity: 1;
+  position: fixed;
+  transition: 0.3s opacity;
+  transition-delay: 0;
+  will-change: opacity;
+  z-index: 5;
+
+  &-hide {
+    opacity: 0;
+  }
+
+  &__item {
+    background-color: $white;
+    height: 0.3rem;
+    margin-right: 0.3rem;
+    opacity: 0.3;
+    transition: 0.5s opacity;
+    transition-delay: 0.2s;
+    width: 2rem;
+    will-change: opacity;
+
+    &-active {
+      opacity: 1;
+    }
+  }
+}
