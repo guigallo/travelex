@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from './Home.module.scss'
 import { useTranslations } from 'use-intl'
+import classNames from 'classnames'
 import Scroller from '../Scroller'
 import Accordion from '../Accordion'
 import Footer from '../Layout/Footer'
@@ -13,6 +14,7 @@ import Banner from '../Banner'
 function Home() {
   const translate = useTranslations('Home')
   const [active, setActive] = useState('')
+  const [page, setPage] = useState(0)
 
   const faqItems = [
     {
@@ -58,39 +60,64 @@ function Home() {
       image: imgBannerFour,
     },
   ]
+
   return (
-    <Scroller>
-      {bannerItems.map((b) => {
-        return (
-          <Banner key={b.id} title={b.title} link={b.link} image={b.image} />
-        )
-      })}
-      <div className={styles['section']} style={{ justifyContent: 'flex-end' }}>
-        <p className={styles['section-subtitle']}>{translate('FAQ.title')}</p>
-        {faqItems.map((x) => {
-          const isActive = active === x.id
-          const activeClass = isActive ? 'active' : ''
-          const toggleAccordion = () => {
-            if (isActive) {
-              setActive('')
-            } else {
-              setActive(x.id)
-            }
-          }
+    <>
+      <div
+        className={classNames(styles['pagination'], {
+          [styles['pagination-hide']]: page >= bannerItems.length,
+        })}
+      >
+        {bannerItems.map((_, i) => (
+          <div
+            key={i}
+            className={classNames(styles['pagination__item'], {
+              [styles['pagination__item-active']]: i === page,
+            })}
+          />
+        ))}
+      </div>
+
+      <Scroller onBeforePageScroll={setPage}>
+        {bannerItems.map((b) => {
           return (
-            <Accordion
-              key={x.id}
-              id={x.id}
-              title={x.title}
-              content={x.content}
-              activeClass={activeClass}
-              toggleAccordion={toggleAccordion}
-            />
+            <Banner key={b.id} title={b.title} link={b.link} image={b.image} />
           )
         })}
-      </div>
-      <Footer />
-    </Scroller>
+
+        <div
+          className={styles['section']}
+          style={{ justifyContent: 'flex-end' }}
+        >
+          <p className={styles['section-subtitle']}>{translate('FAQ.title')}</p>
+
+          {faqItems.map((x) => {
+            const isActive = active === x.id
+            const activeClass = isActive ? 'active' : ''
+            const toggleAccordion = () => {
+              setActive(isActive ? '' : x.id)
+              // if (isActive) {
+              //   setActive('')
+              // } else {
+              //   setActive(x.id)
+              // }
+            }
+            return (
+              <Accordion
+                key={x.id}
+                id={x.id}
+                title={x.title}
+                content={x.content}
+                activeClass={activeClass}
+                toggleAccordion={toggleAccordion}
+              />
+            )
+          })}
+        </div>
+
+        <Footer />
+      </Scroller>
+    </>
   )
 }
 
