@@ -2,28 +2,54 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useTranslations } from 'next-intl'
-import mainLogo from '../../../public/images/TravelexBranco.png'
+import classNames from 'classnames'
+import { useMenuTheme } from '@/contexts/LayoutContext'
+import mainLogoWhite from '../../../public/images/TravelexBranco.png'
+import mainLogoColorful from '../../../public/images/TravelexLogo.png'
 import styles from './Menu.module.scss'
 
 function MenuLinks({ visible }) {
+  const { theme } = useMenuTheme()
   const translate = useTranslations('Layout')
   const { locale, locales, route } = useRouter()
   const otherLocale = locales?.find((cur) => cur !== locale)
 
   return (
-    <div className={styles[`${visible}`]}>
+    <div className={classNames(styles[`${visible}`], styles[theme])}>
       <div className={styles['menu-wrapper']}>
         <Link href="/">
           <a>
-            <div className={styles['menu-logo']}>
-              <Image src={mainLogo} alt="Travelex Logo" layout="responsive" />
+            <div
+              className={classNames(
+                styles['menu-logo'],
+                styles[`menu-logo__${theme}`]
+              )}
+            >
+              {theme === 'dark' ? (
+                <Image
+                  src={mainLogoWhite}
+                  alt="Travelex Logo Mobile"
+                  layout="responsive"
+                />
+              ) : (
+                <Image
+                  src={mainLogoColorful}
+                  alt="Travelex Logo Mobile"
+                  layout="responsive"
+                />
+              )}
             </div>
           </a>
         </Link>
         <div className={styles['menu-left']}>
           <div className={styles['menu-links']}>
             <div className={styles['menu-about']}>
-              <div className={styles['menu-about-border']}></div>
+              <div
+                className={classNames(
+                  styles['menu-about-border'],
+                  styles[`menu-about-border__${theme}`]
+                )}
+              />
               <Link href="/institucional">
                 <a>{translate('menu.about')}</a>
               </Link>
@@ -41,7 +67,12 @@ function MenuLinks({ visible }) {
               </a>
             </div>
             <div className={styles['menu-cta']}>
-              <div className={styles['menu-cta-border']}></div>
+              <div
+                className={classNames(
+                  styles['menu-cta-border'],
+                  styles[`menu-cta-border__${theme}`]
+                )}
+              />
               <Link href="/cadastro">
                 <a>{translate('menu.openAccount')}</a>
               </Link>
@@ -50,7 +81,12 @@ function MenuLinks({ visible }) {
           <div className={styles['menu-lang']}>
             <p>{translate('menu.currentLocale')}</p>
             <Link href={route} locale={otherLocale}>
-              <button>
+              <button
+                className={classNames(
+                  styles['menu-lang-btn'],
+                  styles[`menu-lang-btn__${theme}`]
+                )}
+              >
                 {translate('menu.switchLocale', { locale: otherLocale })}
               </button>
             </Link>
