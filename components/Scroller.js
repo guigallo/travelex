@@ -13,12 +13,6 @@ const Scroller = forwardRef((props, ref) => {
   const [currentPage, setCurrentPage] = useState()
   const { changeTheme } = useMenuTheme()
 
-  const changeThemeFromChild = (page) => {
-    if (!children) return
-    const currentChild = Array.isArray(children) ? children[page] : children
-    changeTheme(currentChild?.props?.menuTheme || 'dark')
-  }
-
   useImperativeHandle(ref, () => ({
     onNext() {
       setCurrentPage(currentPage + 1)
@@ -34,8 +28,8 @@ const Scroller = forwardRef((props, ref) => {
   const handleBeforePageScroll = (page) => {
     if (typeof onBeforePageScroll === 'function') onBeforePageScroll(page)
     if (!children) return
-    // const currentChild = Array.isArray(children) ? children[page] : children
-    // changeTheme(currentChild?.props?.menuTheme || 'dark')
+    const currentChild = Array.isArray(children) ? children[page] : children
+    changeTheme(currentChild?.props?.menuTheme || 'dark')
   }
 
   return (
