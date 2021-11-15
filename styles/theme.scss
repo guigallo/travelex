@@ -1,3 +1,5 @@
+@use 'sass:list';
+
 // Break points
 $max-width-sm: 767px;
 $min-width-sm: 768px;
@@ -19,8 +21,24 @@ $padding-vertical: 1.5em;
 $menu-height: 4.5em;
 
 // Transitions
-@mixin config-transition-prop($prop) {
-  transition: $prop 0.5s;
-  transition-delay: 0.5s;
-  will-change: $prop;
+@mixin config-transition-prop($props...) {
+  $default-delay: 0.5s;
+  $default-duration: 0.5s;
+
+  $durations: ();
+  @for $i from 1 through list.length($props) {
+    $durations: list.append($durations, $default-duration);
+  }
+
+  $transition: list.zip($props, $durations);
+  $transition-delay: $default-delay;
+  $will-change: list.join((), $props, $separator: comma);
+
+  // @debug '[transition]: ' + $transition;
+  // @debug '[transition-deplay]: ' + $transition-delay;
+  // @debug '[will-change]: ' + $will-change;
+
+  transition: $transition;
+  transition-delay: $transition-delay;
+  will-change: $will-change;
 }

@@ -1,0 +1,80 @@
+@import '@/styles/theme';
+
+.title {
+  @include config-transition-prop(opacity, top, transform);
+
+  opacity: 1;
+  position: absolute;
+  top: 20vh;
+  transform-origin: left center;
+
+  &__txt {
+    @include config-transition-prop(margin-left);
+
+    margin: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+
+    &__second-page {
+      margin-left: 0.7em;
+    }
+  }
+
+  &__border {
+    @include config-transition-prop(width);
+
+    background-color: $navy-blue;
+    height: 0.7em;
+    position: absolute;
+    width: 35vw;
+
+    @media (min-width: $min-width-sm) {
+      width: 10vw;
+    }
+
+    &__second-page {
+      width: 0;
+    }
+  }
+
+  &__second-page {
+    opacity: 0;
+    top: 30vh;
+    transform: scale(0.7);
+
+    @media (min-width: $min-width-sm) {
+      display: block;
+      opacity: 1;
+    }
+
+    @media (max-width: $max-width-sm) {
+      transform: translateY(-200%);
+    }
+  }
+}
+
+.caption {
+  bottom: 0;
+  display: none;
+  left: 5.2em;
+  position: absolute;
+
+  @media (min-width: $min-width-sm) {
+    display: block;
+  }
+}
+
+.section {
+  height: 100vh;
+  position: relative;
+}
+
+.content {
+  padding: 10vh $padding-horizontal 0;
+
+  @media (min-width: $min-width-sm) {
+    bottom: 0;
+    padding: 0 20vw 0 39vw;
+    position: absolute;
+  }
+}

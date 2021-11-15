@@ -1,4 +1,9 @@
-import React, { forwardRef, useImperativeHandle, useState } from 'react'
+import React, {
+  useEffect,
+  forwardRef,
+  useImperativeHandle,
+  useState,
+} from 'react'
 import ReactPageScroller from 'react-page-scroller'
 import { useMenuTheme } from '@/contexts/LayoutContext'
 
@@ -31,6 +36,10 @@ const Scroller = forwardRef((props, ref) => {
     const currentChild = Array.isArray(children) ? children[page] : children
     changeTheme(currentChild?.props?.menuTheme || 'dark')
   }
+
+  useEffect(() => {
+    handleBeforePageScroll(0)
+  }, [])
 
   return (
     <div>
