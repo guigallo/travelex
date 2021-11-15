@@ -67,6 +67,30 @@
   padding-right: $padding-horizontal;
 }
 
+.menu-cta {
+  @include config-transition-prop(background-color);
+
+  background-color: transparent;
+
+  a {
+    @include config-transition-prop(color);
+
+    padding: 0 0.5em;
+  }
+}
+
+.menu-cta-active {
+  background-color: $navy-blue;
+
+  div {
+    border-left-color: $navy-blue;
+  }
+
+  a {
+    color: $gray-second !important;
+  }
+}
+
 .menu-cta-border {
   @include config-transition-prop(border-left-color);
 

@@ -1,0 +1,29 @@
+@import '@/styles/theme';
+
+.cadastro {
+  color: $white;
+  display: flex;
+  flex: 1 1;
+  flex-direction: column;
+  height: 100%;
+  padding: $padding-vertical $padding-horizontal;
+  padding-top: 15vh;
+
+  @media (min-width: $min-width-sm) {
+    flex-direction: row;
+    padding-top: 25vh;
+  }
+
+  &__desc {
+    opacity: 0.5;
+    padding-bottom: $padding-vertical * 2;
+    padding-right: $padding-vertical * 4;
+
+    @media (min-width: $min-width-sm) {
+      padding-left: 5vw;
+      width: 38vw;
+    }
+  }
+
+  // &__form { }
+}

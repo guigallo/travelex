@@ -66,7 +66,11 @@ function MenuLinks({ visible }) {
                 {translate('menu.blog')}
               </a>
             </div>
-            <div className={styles['menu-cta']}>
+            <div
+              className={classNames(styles['menu-cta'], {
+                [styles['menu-cta-active']]: route === '/cadastro',
+              })}
+            >
               <div
                 className={classNames(
                   styles['menu-cta-border'],

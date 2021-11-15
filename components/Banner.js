@@ -1,12 +1,17 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import classNames from 'classnames'
 import styles from './Banner.module.scss'
 
-function Banner({ title, id, link, image }) {
+function Banner({ title, id, link, image, children, showGradient = true }) {
   return (
     <div key={id} className={styles['banner']}>
       {image && (
-        <div className={styles['banner-img']}>
+        <div
+          className={classNames(styles['banner-img'], {
+            [styles['banner-img__gradient']]: showGradient,
+          })}
+        >
           <Image src={image} alt={id} />
         </div>
       )}
@@ -18,6 +23,7 @@ function Banner({ title, id, link, image }) {
         </div>
       )}
       {!link && <div className={styles['title']}>{title}</div>}
+      <div className={styles['content']}>{children}</div>
     </div>
   )
 }
