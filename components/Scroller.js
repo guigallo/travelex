@@ -15,31 +15,52 @@ const Scroller = forwardRef((props, ref) => {
     onPageChange = undefined,
     changeNext = () => {},
   } = props
-  const [currentPage, setCurrentPage] = useState()
+  const [isThemeInit, setTehemeInit] = useState(false)
+  const [currentPage, setCurrentPage] = useState(0)
   const { changeTheme } = useMenuTheme()
 
   useImperativeHandle(ref, () => ({
     onNext() {
-      setCurrentPage(currentPage + 1)
+      setCurrentPage(getPageNumber(currentPage + 1))
     },
   }))
 
+  const getPageNumber = (number) => {
+    const childrenLength = Array.isArray(children) ? children.length + 1 : 1
+    return Math.max(Math.min(childrenLength, number), 0)
+  }
+
+  const setThemeByChildren = (page) => {
+    const currentChild = Array.isArray(children) ? children[page] : children
+    changeTheme(currentChild?.props?.menuTheme || 'dark')
+  }
+
   const handlePageChange = (number) => {
-    if (typeof onPageChange === 'function') onPageChange(number)
-    setCurrentPage(number)
+    const page = getPageNumber(number)
+    setCurrentPage(page)
     changeNext()
+    if (typeof onPageChange === 'function') onPageChange(page)
   }
 
   const handleBeforePageScroll = (page) => {
     if (typeof onBeforePageScroll === 'function') onBeforePageScroll(page)
     if (!children) return
-    const currentChild = Array.isArray(children) ? children[page] : children
-    changeTheme(currentChild?.props?.menuTheme || 'dark')
+    setThemeByChildren(page)
   }
 
   useEffect(() => {
-    handleBeforePageScroll(0)
-  }, [])
+    if (currentPage >= children.length) setCurrentPage(children.length + 1)
+    if (currentPage < 0) setCurrentPage(0)
+  }, [currentPage])
+
+  useEffect(() => {
+    if (isThemeInit) return
+    setTehemeInit(true)
+    setThemeByChildren(0)
+  }, [isThemeInit, handlePageChange])
+
+  const isLast = currentPage === children.length - 1
+  const isFirst = currentPage === 0
 
   return (
     <div>
@@ -47,6 +68,8 @@ const Scroller = forwardRef((props, ref) => {
         pageOnChange={handlePageChange}
         customPageNumber={currentPage}
         onBeforePageScroll={handleBeforePageScroll}
+        blockScrollUp={isFirst}
+        blockScrollDown={isLast}
       >
         {children}
       </ReactPageScroller>

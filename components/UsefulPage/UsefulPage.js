@@ -2,6 +2,7 @@ import { useState } from 'react'
 import classNames from 'classnames'
 import Scroller, { ScrollerSection } from '@/components/Scroller'
 import Title from '@/components/Title'
+import Footer from '@/components/Layout/Footer'
 import styles from './UsefulPage.module.scss'
 
 function UsefulPage({ title, caption, content }) {
@@ -43,6 +44,8 @@ function UsefulPage({ title, caption, content }) {
             <p>{content}</p>
           </div>
         </ScrollerSection>
+
+        <Footer />
       </Scroller>
     </>
   )
