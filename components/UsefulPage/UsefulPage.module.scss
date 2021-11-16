@@ -71,6 +71,7 @@
 
 .content {
   padding: 10vh $padding-horizontal 0;
+  white-space: pre-line;
 
   @media (min-width: $min-width-sm) {
     bottom: 0;
