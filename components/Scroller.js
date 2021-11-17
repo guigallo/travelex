@@ -15,6 +15,9 @@ const Scroller = forwardRef((props, ref) => {
     onNext() {
       setCurrentPage(currentPage + 1)
     },
+    goToPage(page) {
+      handlePageChange(page)
+    },
   }))
 
   const handlePageChange = (number) => {
@@ -33,6 +36,7 @@ const Scroller = forwardRef((props, ref) => {
   return (
     <div>
       <ReactPageScroller
+        renderAllPagesOnFirstRender
         pageOnChange={handlePageChange}
         customPageNumber={currentPage}
         onBeforePageScroll={handleBeforePageScroll}
