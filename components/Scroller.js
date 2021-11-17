@@ -3,6 +3,7 @@ import React, {
   forwardRef,
   useImperativeHandle,
   useState,
+  useMemo,
 } from 'react'
 import ReactPageScroller from 'react-page-scroller'
 import { useMenuTheme } from '@/contexts/LayoutContext'
@@ -19,15 +20,25 @@ const Scroller = forwardRef((props, ref) => {
   const [currentPage, setCurrentPage] = useState(0)
   const { changeTheme } = useMenuTheme()
 
+  const totalPages = useMemo(() => {
+    if (!Array.isArray(children)) return 1
+
+    const calcLength = children.reduce((sum, c) => {
+      if (Array.isArray(c)) return sum + c.length
+      return sum + 1
+    }, 0)
+    return calcLength
+  }, [children])
+
   useImperativeHandle(ref, () => ({
     onNext() {
-      setCurrentPage(getPageNumber(currentPage + 1))
+      setCurrentPage(getNewPageNumber(currentPage + 1))
     },
   }))
 
-  const getPageNumber = (number) => {
-    const childrenLength = Array.isArray(children) ? children.length + 1 : 1
-    return Math.max(Math.min(childrenLength, number), 0)
+  const getNewPageNumber = (number) => {
+    const newPage = Math.max(Math.min(totalPages, number), 0)
+    return newPage
   }
 
   const setThemeByChildren = (page) => {
@@ -36,7 +47,7 @@ const Scroller = forwardRef((props, ref) => {
   }
 
   const handlePageChange = (number) => {
-    const page = getPageNumber(number)
+    const page = getNewPageNumber(number)
     setCurrentPage(page)
     changeNext()
     if (typeof onPageChange === 'function') onPageChange(page)
@@ -49,18 +60,13 @@ const Scroller = forwardRef((props, ref) => {
   }
 
   useEffect(() => {
-    if (currentPage >= children.length) setCurrentPage(children.length + 1)
-    if (currentPage < 0) setCurrentPage(0)
-  }, [currentPage])
-
-  useEffect(() => {
     if (isThemeInit) return
     setTehemeInit(true)
     setThemeByChildren(0)
   }, [isThemeInit, handlePageChange])
 
-  const isLast = currentPage === children.length - 1
   const isFirst = currentPage === 0
+  const isLast = currentPage === totalPages - 1
 
   return (
     <div>
