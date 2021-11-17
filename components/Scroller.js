@@ -1,4 +1,10 @@
-import React, { forwardRef, useImperativeHandle, useState } from 'react'
+import React, {
+  useEffect,
+  forwardRef,
+  useImperativeHandle,
+  useState,
+  useMemo,
+} from 'react'
 import ReactPageScroller from 'react-page-scroller'
 import { useMenuTheme } from '@/contexts/LayoutContext'
 
@@ -10,27 +16,57 @@ const Scroller = forwardRef((props, ref) => {
     onPageChange = undefined,
     changeNext = () => {},
   } = props
-  const [currentPage, setCurrentPage] = useState()
+  const [isThemeInit, setTehemeInit] = useState(false)
+  const [currentPage, setCurrentPage] = useState(0)
   const { changeTheme } = useMenuTheme()
+
+  const totalPages = useMemo(() => {
+    if (!Array.isArray(children)) return 1
+
+    const calcLength = children.reduce((sum, c) => {
+      if (Array.isArray(c)) return sum + c.length
+      return sum + 1
+    }, 0)
+    return calcLength
+  }, [children])
 
   useImperativeHandle(ref, () => ({
     onNext() {
-      setCurrentPage(currentPage + 1)
+      setCurrentPage(getNewPageNumber(currentPage + 1))
     },
   }))
 
+  const getNewPageNumber = (number) => {
+    const newPage = Math.max(Math.min(totalPages, number), 0)
+    return newPage
+  }
+
+  const setThemeByChildren = (page) => {
+    const currentChild = Array.isArray(children) ? children[page] : children
+    changeTheme(currentChild?.props?.menuTheme || 'dark')
+  }
+
   const handlePageChange = (number) => {
-    if (typeof onPageChange === 'function') onPageChange(number)
-    setCurrentPage(number)
+    const page = getNewPageNumber(number)
+    setCurrentPage(page)
     changeNext()
+    if (typeof onPageChange === 'function') onPageChange(page)
   }
 
   const handleBeforePageScroll = (page) => {
     if (typeof onBeforePageScroll === 'function') onBeforePageScroll(page)
     if (!children) return
-    const currentChild = Array.isArray(children) ? children[page] : children
-    changeTheme(currentChild?.props?.menuTheme || 'dark')
+    setThemeByChildren(page)
   }
+
+  useEffect(() => {
+    if (isThemeInit) return
+    setTehemeInit(true)
+    setThemeByChildren(0)
+  }, [isThemeInit, handlePageChange])
+
+  const isFirst = currentPage === 0
+  const isLast = currentPage === totalPages - 1
 
   return (
     <div>
@@ -38,6 +74,8 @@ const Scroller = forwardRef((props, ref) => {
         pageOnChange={handlePageChange}
         customPageNumber={currentPage}
         onBeforePageScroll={handleBeforePageScroll}
+        blockScrollUp={isFirst}
+        blockScrollDown={isLast}
       >
         {children}
       </ReactPageScroller>
