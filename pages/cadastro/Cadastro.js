@@ -1,12 +1,13 @@
-import { useTranslations } from 'use-intl'
+import RegisterForm from '@/components/RegisterForm'
+//import { useTranslations } from 'use-intl'
 import styles from './Cadastro.module.scss'
 
 function Cadastro() {
-  const translate = useTranslations('openAccount')
+  // const translate = useTranslations('openAccount')
   return (
-    <>
-      <div className={styles['account']}>{translate('title')}</div>
-    </>
+    <div className={styles['register']}>
+      <RegisterForm />
+    </div>
   )
 }
 
