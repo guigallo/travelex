@@ -20,7 +20,7 @@
   position: absolute;
 }
 
-.banner-img {
+.banner-media {
   background: linear-gradient(
     0deg,
     rgba(2, 0, 36, 0) 0%,
@@ -29,11 +29,17 @@
   position: relative;
 }
 
-.banner-img img {
-  background-size: cover;
+.banner-media img {
   height: 100vh;
+  object-fit: cover;
   width: 100%;
   z-index: -1;
+}
+
+.banner-media video {
+  height: 100vh;
+  object-fit: cover;
+  width: 100%;
 }
 
 @media (max-width: $max-width-sm) {

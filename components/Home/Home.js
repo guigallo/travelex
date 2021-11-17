@@ -5,7 +5,6 @@ import classNames from 'classnames'
 import Scroller from '../Scroller'
 import Accordion from '../Accordion'
 import Footer from '../Layout/Footer'
-import imgBannerOne from '../../public/images/bannerOneHome.png'
 import imgBannerTwo from '../../public/images/bannerTwoHome.png'
 import imgBannerThree from '../../public/images/bannerThreeHome.png'
 import imgBannerFour from '../../public/images/bannerFourHome.png'
@@ -39,7 +38,7 @@ function Home() {
       id: 'banner1',
       title: translate('bannerOne.title'),
       link: translate('bannerOne.link'),
-      image: imgBannerOne,
+      video: '/videos/bg-teste.mp4',
     },
     {
       id: 'banner2',
@@ -81,7 +80,13 @@ function Home() {
       <Scroller onBeforePageScroll={setPage}>
         {bannerItems.map((b) => {
           return (
-            <Banner key={b.id} title={b.title} link={b.link} image={b.image} />
+            <Banner
+              key={b.id}
+              title={b.title}
+              link={b.link}
+              image={b.image}
+              video={b.video}
+            />
           )
         })}
 
