@@ -1,0 +1,16 @@
+@import '@/styles/theme';
+
+.custominput {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid $white;
+  box-shadow: none;
+  font-family: Labrador Regular;
+  font-size: 1.3em;
+  outline: none;
+  width: 100%;
+}
+
+.custominput::placeholder {
+  color: $white;
+}
