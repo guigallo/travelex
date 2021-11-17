@@ -3,36 +3,17 @@ import styles from './Home.module.scss'
 import { useTranslations } from 'use-intl'
 import classNames from 'classnames'
 import Scroller from '../Scroller'
-import Accordion from '../Accordion'
 import Footer from '../Layout/Footer'
 import imgBannerOne from '../../public/images/bannerOneHome.png'
 import imgBannerTwo from '../../public/images/bannerTwoHome.png'
 import imgBannerThree from '../../public/images/bannerThreeHome.png'
 import imgBannerFour from '../../public/images/bannerFourHome.png'
 import Banner from '../Banner'
+import FAQAccordion from '@/components/FAQAccordion'
 
 function Home() {
   const translate = useTranslations('Home')
-  const [active, setActive] = useState('')
   const [page, setPage] = useState(0)
-
-  const faqItems = [
-    {
-      id: 'faq1',
-      title: translate('FAQ.questionOneTitle'),
-      content: translate('FAQ.questionOne'),
-    },
-    {
-      id: 'faq2',
-      title: translate('FAQ.questionTwoTitle'),
-      content: translate('FAQ.questionTwo'),
-    },
-    {
-      id: 'faq3',
-      title: translate('FAQ.questionThreeTitle'),
-      content: translate('FAQ.questionThree'),
-    },
-  ]
 
   const bannerItems = [
     {
@@ -85,35 +66,7 @@ function Home() {
           )
         })}
 
-        <div
-          className={styles['section']}
-          style={{ justifyContent: 'flex-end' }}
-        >
-          <p className={styles['section-subtitle']}>{translate('FAQ.title')}</p>
-
-          {faqItems.map((x) => {
-            const isActive = active === x.id
-            const activeClass = isActive ? 'active' : ''
-            const toggleAccordion = () => {
-              setActive(isActive ? '' : x.id)
-              // if (isActive) {
-              //   setActive('')
-              // } else {
-              //   setActive(x.id)
-              // }
-            }
-            return (
-              <Accordion
-                key={x.id}
-                id={x.id}
-                title={x.title}
-                content={x.content}
-                activeClass={activeClass}
-                toggleAccordion={toggleAccordion}
-              />
-            )
-          })}
-        </div>
+        <FAQAccordion showTitle />
 
         <Footer />
       </Scroller>

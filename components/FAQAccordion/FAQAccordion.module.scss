@@ -1,0 +1,37 @@
+@import '@/styles/theme';
+
+.section {
+  background: $navy-blue;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: flex-end;
+  padding: $padding-horizontal;
+  position: relative;
+
+  @media (max-width: $max-width-sm) {
+    justify-content: center;
+    padding-bottom: $padding-horizontal;
+  }
+
+  &__light {
+    background: $gray-light;
+
+    div,
+    p {
+      color: $black;
+    }
+  }
+
+  &__subtitle {
+    color: $white;
+    font-family: Bebas Neue Regular;
+    font-size: 1.5em;
+
+    @media (max-width: $max-width-sm) {
+      color: $white;
+      font-family: Bebas Neue Regular;
+      font-size: 1em;
+    }
+  }
+}

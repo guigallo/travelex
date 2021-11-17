@@ -5,7 +5,14 @@ import Title from '@/components/Title'
 import Footer from '@/components/Layout/Footer'
 import styles from './UsefulPage.module.scss'
 
-function UsefulPage({ title, caption, content }) {
+function UsefulPage({
+  title,
+  caption,
+  content,
+  children,
+  alwaysShowTitle = true,
+  backgroundColor = 'transparent',
+}) {
   const [onCoverPage, setCoverPage] = useState(true)
 
   const onBeforePageScroll = (page) => {
@@ -13,10 +20,11 @@ function UsefulPage({ title, caption, content }) {
   }
 
   return (
-    <>
+    <div style={{ backgroundColor }}>
       <div
         className={classNames(styles['title'], {
           [styles['title__second-page']]: !onCoverPage,
+          [styles['title__hide-title']]: !onCoverPage && !alwaysShowTitle,
         })}
       >
         <Title
@@ -39,15 +47,19 @@ function UsefulPage({ title, caption, content }) {
           </div>
         </ScrollerSection>
 
-        <ScrollerSection menuTheme="light" className={styles['section']}>
-          <div className={styles['content']}>
-            <p>{content}</p>
-          </div>
-        </ScrollerSection>
+        {content && (
+          <ScrollerSection menuTheme="light" className={styles['section']}>
+            <div className={styles['content']}>
+              <p>{content}</p>
+            </div>
+          </ScrollerSection>
+        )}
+
+        {children}
 
         <Footer />
       </Scroller>
-    </>
+    </div>
   )
 }
 
