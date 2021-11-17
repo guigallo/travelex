@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styles from './Home.module.scss'
 import { useTranslations } from 'use-intl'
 import classNames from 'classnames'
@@ -11,9 +11,12 @@ import imgBannerFour from '../../public/images/bannerFourHome.png'
 import Banner from '../Banner'
 
 function Home() {
+  const scroller = useRef(null)
   const translate = useTranslations('Home')
   const [active, setActive] = useState('')
   const [page, setPage] = useState(0)
+
+  const onPressPagination = (page) => scroller.current.goToPage(page)
 
   const faqItems = [
     {
@@ -74,11 +77,18 @@ function Home() {
             className={classNames(styles['pagination__item'], {
               [styles['pagination__item-active']]: i === page,
             })}
-          />
+            role="button"
+            tabIndex={i}
+            onClick={() => onPressPagination(i)}
+            onPress={() => onPressPagination(i)}
+            onKeyDown={() => onPressPagination(i)}
+          >
+            <div className={classNames(styles['pagination__item-bg'])} />
+          </div>
         ))}
       </div>
 
-      <Scroller onBeforePageScroll={setPage}>
+      <Scroller ref={scroller} onBeforePageScroll={setPage}>
         {bannerItems.map((b) => {
           return (
             <Banner

@@ -45,14 +45,22 @@
   }
 
   &__item {
-    background-color: $white;
-    height: 0.3rem;
     margin-right: 0.3rem;
     opacity: 0.3;
+    padding: 0.5rem 0.3rem;
     transition: 0.5s opacity;
     transition-delay: 0.2s;
-    width: 2rem;
+    width: 3rem;
     will-change: opacity;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &-bg {
+      background-color: $white;
+      height: 0.3rem;
+    }
 
     &-active {
       opacity: 1;
