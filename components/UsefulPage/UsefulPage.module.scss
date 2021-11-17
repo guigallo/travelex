@@ -37,6 +37,10 @@
     }
   }
 
+  &__hide-title {
+    opacity: 0 !important;
+  }
+
   &__second-page {
     opacity: 0;
     top: 30vh;

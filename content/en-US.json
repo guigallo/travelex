@@ -17,14 +17,22 @@
       "link": "/cadastro"
     },
     "FAQ": {
-      "title": "Frequently Asked Questions",
-      "questionOneTitle": "New lines of credit for Travelex Partners Plus customers?",
       "questionOne": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
       "questionTwoTitle": "New lines of credit for Travelex Partners Plus customers?",
       "questionTwo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
       "questionThreeTitle": "New lines of credit for Travelex Partners Plus customers?",
       "questionThree": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
     }
+  },
+  "FAQ": {
+    "title": "Frequently Asked Questions",
+    "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+    "questionOneTitle": "New lines of credit for Travelex Partners Plus customers?",
+    "questionOne": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+    "questionTwoTitle": "Novas linhas de crédito para clientes Travelex Partners Plus?",
+    "questionTwo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+    "questionThreeTitle": "Novas linhas de crédito para clientes Travelex Partners Plus?",
+    "questionThree": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
   },
   "Layout": {
     "menu": {
