@@ -15,6 +15,25 @@ function Banner({ title, id, link, image, children, showGradient = true }) {
           <Image src={image} alt={id} />
         </div>
       )}
+
+      {video && (
+        <div
+          className={classNames(styles['banner-media'], {
+            [styles['banner-media__gradient']]: showGradient,
+          })}
+        >
+          <video src={video} alt={id} autoPlay muted loop />
+        </div>
+      )}
+
+      {showGradient && (
+        <div
+          className={classNames({
+            [styles['banner-media__gradient']]: showGradient,
+          })}
+        />
+      )}
+
       {link && (
         <div className={styles['title']}>
           <Link href={link}>
@@ -22,6 +41,7 @@ function Banner({ title, id, link, image, children, showGradient = true }) {
           </Link>
         </div>
       )}
+
       {!link && <div className={styles['title']}>{title}</div>}
       <div className={styles['content']}>{children}</div>
     </div>

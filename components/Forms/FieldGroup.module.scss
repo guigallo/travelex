@@ -1,0 +1,24 @@
+@import '@/styles/theme';
+
+.fieldgroup {
+  display: flex;
+  flex-direction: row;
+}
+
+.fieldgroup > * {
+  width: 100%;
+}
+
+.fieldgroup > *:first-child {
+  padding-right: $padding-horizontal;
+}
+
+@media (max-width: $max-width-sm) {
+  .fieldgroup {
+    flex-direction: column;
+  }
+
+  .fieldgroup > *:first-child {
+    padding-right: 0;
+  }
+}

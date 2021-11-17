@@ -1,20 +1,22 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styles from './Home.module.scss'
 import { useTranslations } from 'use-intl'
 import classNames from 'classnames'
 import Scroller from '../Scroller'
 import Accordion from '../Accordion'
 import Footer from '../Layout/Footer'
-import imgBannerOne from '../../public/images/bannerOneHome.png'
 import imgBannerTwo from '../../public/images/bannerTwoHome.png'
 import imgBannerThree from '../../public/images/bannerThreeHome.png'
 import imgBannerFour from '../../public/images/bannerFourHome.png'
 import Banner from '../Banner'
 
 function Home() {
+  const scroller = useRef(null)
   const translate = useTranslations('Home')
   const [active, setActive] = useState('')
   const [page, setPage] = useState(0)
+
+  const onPressPagination = (page) => scroller.current.goToPage(page)
 
   const faqItems = [
     {
@@ -39,7 +41,8 @@ function Home() {
       id: 'banner1',
       title: translate('bannerOne.title'),
       link: translate('bannerOne.link'),
-      image: imgBannerOne,
+      video: '/videos/bg-teste.mp4',
+      gradient: true,
     },
     {
       id: 'banner2',
@@ -74,14 +77,28 @@ function Home() {
             className={classNames(styles['pagination__item'], {
               [styles['pagination__item-active']]: i === page,
             })}
-          />
+            role="button"
+            tabIndex={i}
+            onClick={() => onPressPagination(i)}
+            onPress={() => onPressPagination(i)}
+            onKeyDown={() => onPressPagination(i)}
+          >
+            <div className={classNames(styles['pagination__item-bg'])} />
+          </div>
         ))}
       </div>
 
-      <Scroller onBeforePageScroll={setPage}>
+      <Scroller ref={scroller} onBeforePageScroll={setPage}>
         {bannerItems.map((b) => {
           return (
-            <Banner key={b.id} title={b.title} link={b.link} image={b.image} />
+            <Banner
+              key={b.id}
+              title={b.title}
+              link={b.link}
+              image={b.image}
+              video={b.video}
+              showGradient={b.gradient}
+            />
           )
         })}
 

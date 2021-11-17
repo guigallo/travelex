@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useTranslations } from 'use-intl'
 import Banner from '@/components/Banner'
 import { useMenuTheme } from '@/contexts/LayoutContext'
+import RegisterForm from '@/components/RegisterForm'
 import imgBannerOne from '../../public/images/bannerOneHome.png'
 import styles from './Cadastro.module.scss'
 
@@ -29,7 +30,7 @@ function Cadastro() {
           {sended ? (
             <p>{translate('sended')}</p>
           ) : (
-            <button onClick={() => setSended(true)}>enviar</button>
+            <RegisterForm />
           )}
         </div>
       </div>
