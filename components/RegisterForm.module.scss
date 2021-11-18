@@ -1,7 +1,15 @@
 @import '@/styles/theme';
 
 .register-form {
-  max-width: 50%;
+  &__form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__divider {
+    min-height: 30vh;
+  }
 }
 
 .button {
@@ -9,8 +17,29 @@
   font-size: 1.3em;
 }
 
+.select {
+  button {
+    border-bottom: 0.2rem solid transparent;
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    margin-right: 1.3rem;
+
+    &:hover {
+      border-bottom-color: $white;
+    }
+  }
+
+  &-active {
+    border-bottom-color: $white !important;
+  }
+}
+
 @media (max-width: $max-width-sm) {
   .register-form {
     max-width: 100%;
+
+    &__divider {
+      min-height: 15vh;
+    }
   }
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useTranslations } from 'use-intl'
 import Banner from '@/components/Banner'
 import { useMenuTheme } from '@/contexts/LayoutContext'
@@ -7,7 +7,6 @@ import imgBannerOne from '../../public/images/bannerOneHome.png'
 import styles from './Cadastro.module.scss'
 
 function Cadastro() {
-  const [sended] = useState(false)
   const translate = useTranslations('openAccount')
   const { changeTheme } = useMenuTheme()
 
@@ -27,7 +26,7 @@ function Cadastro() {
         </div>
 
         <div className={styles['cadastro__form']}>
-          {sended ? <p>{translate('sended')}</p> : <RegisterForm />}
+          <RegisterForm />
         </div>
       </div>
     </Banner>
