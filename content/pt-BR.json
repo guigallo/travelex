@@ -105,10 +105,13 @@
     "sended": "Enviado com sucesso!",
     "inputs": {
       "name": "Nome Completo",
-      "nameCorp": "Nome",
+      "representativeName": "Nome do representante",
+      "corporateName": "Razão Social",
       "cpf": "CPF",
+      "representativeCpf": "CPF do representante",
       "cnpj": "CNPJ",
       "email": "E-mail",
+      "representativeEmail": "E-mail do representante",
       "phone": "Celular",
       "date": "Data de nascimento"
     },

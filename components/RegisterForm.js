@@ -6,7 +6,6 @@ import Field from './Forms/Field'
 import FieldGroup from './Forms/FieldGroup'
 import EmailField from './Forms/EmailField'
 import PhoneField from './Forms/PhoneField'
-import DateField from './Forms/DateField'
 import styles from './RegisterForm.module.scss'
 
 function sleep(ms) {
@@ -111,47 +110,58 @@ const RegisterForm = ({ type: typeProp = FormTypes.PESSOA_FISICA }) => {
         onSubmit={handleSubmit}
         render={() => (
           <Form className={styles['register-form__form']}>
+            {type === FormTypes.CORPORATIVO && (
+              <>
+                <Field
+                  name="corporateName"
+                  type="text"
+                  label={translate('inputs.corporateName')}
+                />
+                <Field
+                  name="cnpj"
+                  type="text"
+                  label={translate('inputs.cnpj')}
+                />
+              </>
+            )}
+
             <Field
               name="name"
               type="text"
               label={
                 type === FormTypes.CORPORATIVO
-                  ? translate('inputs.nameCorp')
+                  ? translate('inputs.representativeName')
                   : translate('inputs.name')
               }
             />
+
             <FieldGroup>
-              {type === FormTypes.PESSOA_FISICA && (
-                <Field label={translate('inputs.cpf')} name="cpf" type="text" />
-              )}
-              {type === FormTypes.CORPORATIVO && (
-                <Field
-                  label={translate('inputs.cnpj')}
-                  name="cnpj"
-                  type="text"
-                />
-              )}
+              <Field
+                name="cpf"
+                type="text"
+                label={
+                  type === FormTypes.CORPORATIVO
+                    ? translate('inputs.representativeCpf')
+                    : translate('inputs.cpf')
+                }
+              />
               <PhoneField
-                label={translate('inputs.phone')}
                 name="phone"
                 errorMessage={translate('error.phoneInvalid')}
+                label={translate('inputs.phone')}
               />
             </FieldGroup>
-            <FieldGroup>
-              <EmailField
-                label={translate('inputs.email')}
-                name="email"
-                errorMessage={translate('error.emailInvalid')}
-              />
-              {type !== FormTypes.CORPORATIVO && (
-                <DateField
-                  label={translate('inputs.date')}
-                  name="date"
-                  type="text"
-                  errorMessage={translate('error.dateInvalid')}
-                />
-              )}
-            </FieldGroup>
+
+            <EmailField
+              name="email"
+              errorMessage={translate('error.emailInvalid')}
+              label={
+                type === FormTypes.CORPORATIVO
+                  ? translate('inputs.representativeEmail')
+                  : translate('inputs.email')
+              }
+            />
+
             <div className={styles['register-form__divider']} />
             <div className={styles['button']}>
               <button type="submit">{translate('send')}</button>

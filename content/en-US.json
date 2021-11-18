@@ -105,10 +105,13 @@
     "sended": "Sended",
     "inputs": {
       "name": "Full Name",
-      "nameCorp": "Name",
+      "representativeName": "Representative's Name",
+      "corporateName": "Corporate Name",
       "cpf": "CPF",
+      "representativeCpf": "Representative's CPF",
       "cnpj": "CNPJ",
       "email": "E-Mail",
+      "representativeEmail": "Representative's E-mail",
       "phone": "Phone",
       "date": "Birthdate"
     },
