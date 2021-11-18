@@ -7,7 +7,7 @@ import imgBannerOne from '../../public/images/bannerOneHome.png'
 import styles from './Cadastro.module.scss'
 
 function Cadastro() {
-  const [sended, setSended] = useState(false)
+  const [sended] = useState(false)
   const translate = useTranslations('openAccount')
   const { changeTheme } = useMenuTheme()
 
@@ -27,11 +27,7 @@ function Cadastro() {
         </div>
 
         <div className={styles['cadastro__form']}>
-          {sended ? (
-            <p>{translate('sended')}</p>
-          ) : (
-            <RegisterForm />
-          )}
+          {sended ? <p>{translate('sended')}</p> : <RegisterForm />}
         </div>
       </div>
     </Banner>

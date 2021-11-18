@@ -3,25 +3,25 @@ import Image from 'next/image'
 import classNames from 'classnames'
 import styles from './Banner.module.scss'
 
-function Banner({ title, id, link, image, children, showGradient = true }) {
+function Banner({
+  title,
+  id,
+  link,
+  image,
+  children,
+  video,
+  showGradient = true,
+}) {
   return (
     <div key={id} className={styles['banner']}>
       {image && (
-        <div
-          className={classNames(styles['banner-img'], {
-            [styles['banner-img__gradient']]: showGradient,
-          })}
-        >
+        <div className={styles['banner-media']}>
           <Image src={image} alt={id} />
         </div>
       )}
 
       {video && (
-        <div
-          className={classNames(styles['banner-media'], {
-            [styles['banner-media__gradient']]: showGradient,
-          })}
-        >
+        <div className={styles['banner-media']}>
           <video src={video} alt={id} autoPlay muted loop />
         </div>
       )}
