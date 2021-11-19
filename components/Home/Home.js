@@ -91,6 +91,7 @@ function Home() {
         {bannerItems.map((b) => {
           return (
             <Banner
+              showGradient
               key={b.id}
               title={b.title}
               link={b.link}
