@@ -8,6 +8,11 @@
   top: 20vh;
   transform-origin: left center;
 
+  &__fixed {
+    height: 100vh;
+    position: relative;
+  }
+
   &__txt {
     @include config-transition-prop(margin-left);
 

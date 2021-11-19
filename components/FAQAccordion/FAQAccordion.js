@@ -4,27 +4,14 @@ import classNames from 'classnames'
 import Accordion from '../Accordion'
 import styles from './FAQAccordion.module.scss'
 
-function FAQAccordion({ showTitle, theme = 'dark' }) {
+function FAQAccordion({
+  showTitle,
+  faqItems,
+  theme = 'dark',
+  showContact = false,
+}) {
   const translate = useTranslations('FAQ')
   const [active, setActive] = useState('')
-
-  const faqItems = [
-    {
-      id: 'faq1',
-      title: translate('questionOneTitle'),
-      content: translate('questionOne'),
-    },
-    {
-      id: 'faq2',
-      title: translate('questionTwoTitle'),
-      content: translate('questionTwo'),
-    },
-    {
-      id: 'faq3',
-      title: translate('questionThreeTitle'),
-      content: translate('questionThree'),
-    },
-  ]
 
   return (
     <div
@@ -53,6 +40,12 @@ function FAQAccordion({ showTitle, theme = 'dark' }) {
           />
         )
       })}
+
+      {showContact && (
+        <div className={styles['section__contact']}>
+          <p>{translate('contact')}</p>
+        </div>
+      )}
     </div>
   )
 }

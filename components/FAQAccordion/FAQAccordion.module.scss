@@ -4,8 +4,8 @@
   background: $navy-blue;
   display: flex;
   flex-direction: column;
-  height: 100vh;
   justify-content: flex-end;
+  min-height: 100vh;
   padding: $padding-horizontal;
   position: relative;
 
@@ -33,5 +33,9 @@
       font-family: Bebas Neue Regular;
       font-size: 1em;
     }
+  }
+
+  &__contact {
+    padding-left: $padding-horizontal * 2;
   }
 }
