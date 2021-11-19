@@ -1,9 +1,17 @@
+import { useEffect } from 'react'
 import { useTranslations } from 'use-intl'
+import { useMenuTheme } from '@/contexts/LayoutContext'
 import UsefulPage from '@/components/UsefulPage'
 import FAQAccordion from '@/components/FAQAccordion'
 
 function FAQ() {
   const translate = useTranslations('FAQ')
+  const { changeTheme } = useMenuTheme()
+
+  useEffect(() => {
+    changeTheme('light')
+    return () => changeTheme('dark')
+  }, [changeTheme])
 
   const faqItems = [
     {
@@ -43,6 +51,7 @@ function FAQ() {
       title={translate('title')}
       caption={translate('caption')}
       backgroundColor="#a6a6a6"
+      color="#000"
       alwaysShowTitle={false}
       Wrapper="div"
     >

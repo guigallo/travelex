@@ -10,6 +10,7 @@ function UsefulPage({
   caption,
   content,
   children,
+  color = undefined,
   alwaysShowTitle = true,
   backgroundColor = 'transparent',
   Wrapper = Scroller,
@@ -30,6 +31,7 @@ function UsefulPage({
         })}
       >
         <Title
+          color={color}
           mainTitle={title}
           titleClassName={classNames(styles['title__txt'], {
             [styles['title__txt__second-page']]: !onCoverPage,
@@ -39,6 +41,7 @@ function UsefulPage({
           className={classNames(styles['title__border'], {
             [styles['title__border__second-page']]: !onCoverPage,
           })}
+          style={color ? { backgroundColor: color } : {}}
         />
       </div>
 
