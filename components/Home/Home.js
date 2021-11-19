@@ -42,7 +42,6 @@ function Home() {
       title: translate('bannerOne.title'),
       link: translate('bannerOne.link'),
       video: '/videos/bg-teste.mp4',
-      gradient: true,
     },
     {
       id: 'banner2',
@@ -97,7 +96,6 @@ function Home() {
               link={b.link}
               image={b.image}
               video={b.video}
-              showGradient={b.gradient}
             />
           )
         })}

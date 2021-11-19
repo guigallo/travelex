@@ -3,13 +3,10 @@ import DateInput from './DateInput'
 
 const isDate = (value) => value.length > 8
 
-const validate = (value) => !isDate(value) && 'Telefone inválido.'
-
 const DateField = (props) => (
   <Field
-    label="Telefone"
     type="phone"
-    validate={validate}
+    validate={(value) => !isDate(value) && props.errorMessage}
     component={DateInput}
     {...props}
   />

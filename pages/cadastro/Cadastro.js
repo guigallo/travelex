@@ -1,13 +1,35 @@
+import { useEffect } from 'react'
+import { useTranslations } from 'use-intl'
+import Banner from '@/components/Banner'
+import { useMenuTheme } from '@/contexts/LayoutContext'
 import RegisterForm from '@/components/RegisterForm'
-//import { useTranslations } from 'use-intl'
+import imgBannerOne from '../../public/images/bannerOneHome.png'
 import styles from './Cadastro.module.scss'
 
 function Cadastro() {
-  // const translate = useTranslations('openAccount')
+  const translate = useTranslations('openAccount')
+  const { changeTheme } = useMenuTheme()
+
+  useEffect(() => {
+    changeTheme('light')
+
+    return () => {
+      changeTheme('dark')
+    }
+  }, [changeTheme])
+
   return (
-    <div className={styles['register']}>
-      <RegisterForm />
-    </div>
+    <Banner showGradient={false} image={imgBannerOne}>
+      <div className={styles['cadastro']}>
+        <div className={styles['cadastro__desc']}>
+          <p>{translate('description')}</p>
+        </div>
+
+        <div className={styles['cadastro__form']}>
+          <RegisterForm />
+        </div>
+      </div>
+    </Banner>
   )
 }
 

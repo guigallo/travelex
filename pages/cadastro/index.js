@@ -1,7 +1,7 @@
 import Cadastro from './Cadastro'
 
-export default function InstitucionalPage({ locale }) {
-  return <Cadastro locale={locale} />
+export default function InstitucionalPage({ locale, messages }) {
+  return <Cadastro locale={locale} messages={messages} />
 }
 
 export function getStaticProps({ locale }) {

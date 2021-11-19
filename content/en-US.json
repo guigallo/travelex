@@ -83,6 +83,8 @@
     "tradeService": "Trade Service"
   },
   "openAccount": {
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+    "sended": "Enviado.",
     "title": "Open Account"
   },
   "Compliance": {
@@ -94,5 +96,35 @@
     "title": "Ouvidoria",
     "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare blandit libero in fermentum. Integer placerat nisi quis justo interdum, nec consectetur nisl finibus. Vestibulum placerat magna non urna vehicula fringilla. Nullam vel purus ac lorem pulvinar posuere a ut neque. Quisque suscipit fermentum hendrerit. Integer augue nulla, pellentesque ac pellentesque posuere, sollicitudin id odio. Aenean ultrices ex sit amet neque posuere venenatis. Fusce volutpat rhoncus fermentum. Integer at lobortis nisi, id ultricies elit. Donec ut consectetur est, eget mattis orci. Nulla ut porta tellus. Integer non cursus quam. Donec quis placerat eros.\n\nSed maximus augue magna, ultrices elementum nibh efficitur in. Maecenas sed tellus vitae enim accumsan tempus quis quis orci. Cras ac est non mauris convallis faucibus. Praesent ac lectus lorem. Nullam eget interdum ante. Praesent eu purus ac quam porttitor vestibulum. Curabitur accumsan commodo erat, eu facilisis turpis. Praesent eget purus vel mi tincidunt blandit pretium a massa. In hac habitasse platea dictumst. Praesent imperdiet ut ante dignissim cursus. Sed magna mi, consectetur porta ullamcorper nec, maximus nec purus. Praesent facilisis viverra quam, quis porta metus."
+  },
+  "Form": {
+    "person": "Person",
+    "corporate": "Corporate",
+    "send": "Send",
+    "submiting": "Submiting",
+    "sended": "Sended",
+    "inputs": {
+      "name": "Full Name",
+      "representativeName": "Representative's Name",
+      "corporateName": "Corporate Name",
+      "cpf": "CPF",
+      "representativeCpf": "Representative's CPF",
+      "cnpj": "CNPJ",
+      "email": "E-Mail",
+      "representativeEmail": "Representative's E-mail",
+      "phone": "Phone",
+      "date": "Birthdate"
+    },
+    "errors": {
+      "name": "Name is required",
+      "cpf": "CPF is required",
+      "cnpj": "CNPJ is required",
+      "email": "E-mail is required",
+      "phone": "Phone is required",
+      "date": "Date is required",
+      "phoneInvalid": "Invalid Phone",
+      "emailInvalid": "Invalid E-mail",
+      "dateInvalid": "Invalid Date"
+    }
   }
 }
