@@ -12,6 +12,7 @@ function UsefulPage({
   children,
   alwaysShowTitle = true,
   backgroundColor = 'transparent',
+  Wrapper = Scroller,
 }) {
   const [onCoverPage, setCoverPage] = useState(true)
 
@@ -23,6 +24,7 @@ function UsefulPage({
     <div style={{ backgroundColor }}>
       <div
         className={classNames(styles['title'], {
+          [styles['title__fixed']]: true,
           [styles['title__second-page']]: !onCoverPage,
           [styles['title__hide-title']]: !onCoverPage && !alwaysShowTitle,
         })}
@@ -40,7 +42,7 @@ function UsefulPage({
         />
       </div>
 
-      <Scroller onBeforePageScroll={onBeforePageScroll}>
+      <Wrapper onBeforePageScroll={onBeforePageScroll}>
         <ScrollerSection menuTheme="light">
           <div className={styles['caption']}>
             <p>{caption}</p>
@@ -58,7 +60,7 @@ function UsefulPage({
         {children}
 
         <Footer />
-      </Scroller>
+      </Wrapper>
     </div>
   )
 }
