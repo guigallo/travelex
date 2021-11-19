@@ -5,7 +5,7 @@ import styles from './Banner.module.scss'
 
 function Banner({ title, id, link, image, video, showGradient = false }) {
   return (
-    <div key={id} className={styles['banner']}>
+    <div key={id} className={classNames(styles['banner'], {})}>
       {image && (
         <div className={styles['banner-media']}>
           <Image src={image} alt={id} />
