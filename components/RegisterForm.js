@@ -25,14 +25,17 @@ const INITIAL_VALUE = {
   cpf: '',
   phone: '',
   email: '',
+  occupation: '',
+  file: null,
+  message: null,
 }
 
 const RegisterForm = ({
   hideType = false,
-  type: typeProp = FormTypes.PESSOA_FISICA,
+  formType = FormTypes.PESSOA_FISICA,
 }) => {
   const translate = useTranslations('Form')
-  const [type, setType] = useState(typeProp)
+  const [type, setType] = useState(formType)
   const [submiting, setSubmiting] = useState(false)
   const [sended, setSended] = useState(false)
 
@@ -40,14 +43,20 @@ const RegisterForm = ({
     const errors = {}
 
     if (!values.name) errors.name = translate('errors.name')
-    if (!values.cpf) errors.cpf = translate('errors.cpf')
     if (!values.phone) errors.phone = translate('errors.phone')
     if (!values.email) errors.email = translate('errors.email')
+    if (!values.cpf) errors.cpf = translate('errors.cpf')
 
     if (type === FormTypes.CORPORATIVO) {
       if (!values.cnpj) errors.cnpj = translate('errors.cnpj')
       if (!values.corporateName)
         errors.corporateName = translate('errors.corporateName')
+    }
+
+    if (type === FormTypes.TRABALHE_CONOSCO) {
+      if (!values.occupation) errors.occupation = translate('errors.occupation')
+      if (!values.file) errors.file = translate('errors.file')
+      if (!values.message) errors.file = translate('errors.message')
     }
 
     return errors
@@ -166,6 +175,27 @@ const RegisterForm = ({
                   : translate('inputs.email')
               }
             />
+
+            {type === FormTypes.TRABALHE_CONOSCO && (
+              <>
+                <Field
+                  name="occupation"
+                  type="text"
+                  label={translate('inputs.occupation')}
+                />
+                <Field
+                  name="message"
+                  type="text"
+                  label={translate('inputs.message')}
+                />
+                <Field
+                  name="file"
+                  type="file"
+                  label={translate('inputs.file')}
+                  accept="application/msword, application/pdf"
+                />
+              </>
+            )}
 
             <div className={styles['register-form__divider']} />
             <div className={styles['button']}>

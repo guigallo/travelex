@@ -1,14 +1,14 @@
 import { useTranslations } from 'use-intl'
 import FormPage from '@/components/FormPage'
 import { FormTypes } from '@/components/RegisterForm'
-import imgBannerOne from '../public/images/bannerOneHome.png'
+import imgBannerTwo from '../public/images/bannerTwoHome.png'
 
 function Cadastro(props) {
   const translate = useTranslations('Jobs')
 
   return (
     <FormPage
-      backgroundImage={imgBannerOne}
+      backgroundImage={imgBannerTwo}
       description={translate('description')}
       descriptionTitle={translate('descriptionTitle')}
       formType={FormTypes.TRABALHE_CONOSCO}

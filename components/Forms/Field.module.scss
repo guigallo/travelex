@@ -10,6 +10,19 @@
   font-size: 1.3em;
   outline: none;
   width: 100%;
+
+  &[type='file'] {
+    cursor: pointer;
+
+    &::-webkit-file-upload-button {
+      visibility: hidden;
+      width: 0;
+    }
+
+    &::before {
+      content: 'Choose file';
+    }
+  }
 }
 
 .custominput::placeholder {
