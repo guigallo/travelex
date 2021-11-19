@@ -27,7 +27,10 @@ const INITIAL_VALUE = {
   email: '',
 }
 
-const RegisterForm = ({ type: typeProp = FormTypes.PESSOA_FISICA }) => {
+const RegisterForm = ({
+  hideType = false,
+  type: typeProp = FormTypes.PESSOA_FISICA,
+}) => {
   const translate = useTranslations('Form')
   const [type, setType] = useState(typeProp)
   const [submiting, setSubmiting] = useState(false)
@@ -85,7 +88,7 @@ const RegisterForm = ({ type: typeProp = FormTypes.PESSOA_FISICA }) => {
   if (sended) return <div>Enviado com sucesso.</div>
   return (
     <div className={styles['register-form']}>
-      {type !== FormTypes.TRABALHE_CONOSCO && (
+      {!hideType && type !== FormTypes.TRABALHE_CONOSCO && (
         <div className={styles['select']}>
           <button
             className={classNames({

@@ -126,5 +126,9 @@
       "emailInvalid": "E-mail inválido",
       "dateInvalid": "Data inválida"
     }
+  },
+  "Jobs": {
+    "descriptionTitle": "Trabalhe conosco",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
   }
 }
