@@ -19,12 +19,12 @@ const FormTypes = {
 }
 
 const INITIAL_VALUE = {
-  name: '',
-  email: '',
-  cpf: '',
+  corporateName: '',
   cnpj: '',
+  name: '',
+  cpf: '',
   phone: '',
-  date: '',
+  email: '',
 }
 
 const RegisterForm = ({ type: typeProp = FormTypes.PESSOA_FISICA }) => {
@@ -37,13 +37,15 @@ const RegisterForm = ({ type: typeProp = FormTypes.PESSOA_FISICA }) => {
     const errors = {}
 
     if (!values.name) errors.name = translate('errors.name')
-    if (!values.email) errors.email = translate('errors.email')
+    if (!values.cpf) errors.cpf = translate('errors.cpf')
     if (!values.phone) errors.phone = translate('errors.phone')
-    if (!values.date) errors.date = translate('errors.date')
-    if (type === FormTypes.PESSOA_FISICA && !values.cpf)
-      errors.cpf = translate('errors.cpf')
-    if (type === FormTypes.CORPORATIVO && !values.cnpj)
-      errors.cnpj = translate('errors.cnpj')
+    if (!values.email) errors.email = translate('errors.email')
+
+    if (type === FormTypes.CORPORATIVO) {
+      if (!values.cnpj) errors.cnpj = translate('errors.cnpj')
+      if (!values.corporateName)
+        errors.corporateName = translate('errors.corporateName')
+    }
 
     return errors
   }
