@@ -7,15 +7,11 @@ import React, {
 } from 'react'
 import ReactPageScroller from 'react-page-scroller'
 import { useMenuTheme } from '@/contexts/LayoutContext'
+import useBounceScroll from '@/hooks/useBounceScroll'
 
 // eslint-disable-next-line react/display-name
 const Scroller = forwardRef((props, ref) => {
-  const {
-    children,
-    onBeforePageScroll = undefined,
-    onPageChange = undefined,
-    changeNext = () => {},
-  } = props
+  const { children, onBeforePageScroll = undefined } = props
   const [isThemeInit, setTehemeInit] = useState(false)
   const [currentPage, setCurrentPage] = useState(0)
   const { changeTheme } = useMenuTheme()
@@ -35,7 +31,7 @@ const Scroller = forwardRef((props, ref) => {
       setCurrentPage(getNewPageNumber(currentPage + 1))
     },
     goToPage(page) {
-      handlePageChange(page)
+      setCurrentPage(getNewPageNumber(page))
     },
   }))
 
@@ -49,13 +45,6 @@ const Scroller = forwardRef((props, ref) => {
     changeTheme(currentChild?.props?.menuTheme || 'dark')
   }
 
-  const handlePageChange = (number) => {
-    const page = getNewPageNumber(number)
-    setCurrentPage(page)
-    changeNext()
-    if (typeof onPageChange === 'function') onPageChange(page)
-  }
-
   const handleBeforePageScroll = (page) => {
     if (typeof onBeforePageScroll === 'function') onBeforePageScroll(page)
     if (!children) return
@@ -66,20 +55,26 @@ const Scroller = forwardRef((props, ref) => {
     if (isThemeInit) return
     setTehemeInit(true)
     setThemeByChildren(0)
-  }, [isThemeInit, handlePageChange])
+  }, [isThemeInit])
 
-  const isFirst = currentPage === 0
-  const isLast = currentPage === totalPages - 1
+  useBounceScroll({
+    callback: (scrolling) => {
+      const isToNext = scrolling.x + scrolling.y > 0
+      const offset = isToNext ? 1 : -1
+      setCurrentPage((v) => getNewPageNumber(v + offset))
+    },
+    wait: 1000,
+    preventDefault: false,
+  })
 
   return (
     <div>
       <ReactPageScroller
+        blockScrollUp
+        blockScrollDown
         renderAllPagesOnFirstRender
-        pageOnChange={handlePageChange}
         customPageNumber={currentPage}
         onBeforePageScroll={handleBeforePageScroll}
-        blockScrollUp={isFirst}
-        blockScrollDown={isLast}
       >
         {children}
       </ReactPageScroller>
