@@ -17,6 +17,24 @@ function Home() {
 
   const onPressPagination = (page) => scroller.current.goToPage(page)
 
+  const faqItems = [
+    {
+      id: 'faq1',
+      title: translate('FAQ.questionOneTitle'),
+      content: translate('FAQ.questionOne'),
+    },
+    {
+      id: 'faq2',
+      title: translate('FAQ.questionTwoTitle'),
+      content: translate('FAQ.questionTwo'),
+    },
+    {
+      id: 'faq3',
+      title: translate('FAQ.questionThreeTitle'),
+      content: translate('FAQ.questionThree'),
+    },
+  ]
+
   const bannerItems = [
     {
       id: 'banner1',
@@ -81,7 +99,7 @@ function Home() {
           )
         })}
 
-        <FAQAccordion showTitle />
+        <FAQAccordion showTitle faqItems={faqItems} />
 
         <Footer />
       </Scroller>

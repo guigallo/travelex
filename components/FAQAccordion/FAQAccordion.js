@@ -6,9 +6,9 @@ import styles from './FAQAccordion.module.scss'
 
 function FAQAccordion({
   showTitle,
-  faqItems,
   theme = 'dark',
   showContact = false,
+  faqItems = [],
 }) {
   const translate = useTranslations('FAQ')
   const [active, setActive] = useState('')
