@@ -13,7 +13,7 @@ function Banner({
   showGradient = true,
 }) {
   return (
-    <div key={id} className={styles['banner']}>
+    <div key={id} className={classNames(styles['banner'], {})}>
       {image && (
         <div className={styles['banner-media']}>
           <Image src={image} alt={id} />
