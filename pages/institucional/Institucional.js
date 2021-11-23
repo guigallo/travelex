@@ -14,7 +14,11 @@ function Institucional() {
   return (
     <>
       <Scroller>
-        <Banner title={translate('mainTitle')} image={bannerInstitutional} />
+        <Banner
+          showGradient
+          title={translate('mainTitle')}
+          image={bannerInstitutional}
+        />
         <ScrollerSection menuTheme="light" className={styles['section']}>
           <Title mainTitle={translate('mainTitle')} />
           <Grid

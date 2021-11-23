@@ -5,12 +5,16 @@ function Title({
   mainTitle,
   hasCaption,
   caption,
+  color = undefined,
   titleClassName = undefined,
   captionClassName = undefined,
 }) {
   return (
     <>
-      <div className={classNames(styles['title'], titleClassName)}>
+      <div
+        className={classNames(styles['title'], titleClassName)}
+        style={color ? { color } : {}}
+      >
         {mainTitle}
       </div>
       {hasCaption && (

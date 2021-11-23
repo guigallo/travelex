@@ -5,7 +5,16 @@ import Title from '@/components/Title'
 import Footer from '@/components/Layout/Footer'
 import styles from './UsefulPage.module.scss'
 
-function UsefulPage({ title, caption, content }) {
+function UsefulPage({
+  title,
+  caption,
+  content,
+  children,
+  color = undefined,
+  alwaysShowTitle = true,
+  backgroundColor = 'transparent',
+  Wrapper = Scroller,
+}) {
   const [onCoverPage, setCoverPage] = useState(true)
 
   const onBeforePageScroll = (page) => {
@@ -13,13 +22,16 @@ function UsefulPage({ title, caption, content }) {
   }
 
   return (
-    <>
+    <div style={{ backgroundColor }}>
       <div
         className={classNames(styles['title'], {
+          [styles['title__fixed']]: true,
           [styles['title__second-page']]: !onCoverPage,
+          [styles['title__hide-title']]: !onCoverPage && !alwaysShowTitle,
         })}
       >
         <Title
+          color={color}
           mainTitle={title}
           titleClassName={classNames(styles['title__txt'], {
             [styles['title__txt__second-page']]: !onCoverPage,
@@ -29,25 +41,30 @@ function UsefulPage({ title, caption, content }) {
           className={classNames(styles['title__border'], {
             [styles['title__border__second-page']]: !onCoverPage,
           })}
+          style={color ? { backgroundColor: color } : {}}
         />
       </div>
 
-      <Scroller onBeforePageScroll={onBeforePageScroll}>
+      <Wrapper onBeforePageScroll={onBeforePageScroll}>
         <ScrollerSection menuTheme="light">
           <div className={styles['caption']}>
             <p>{caption}</p>
           </div>
         </ScrollerSection>
 
-        <ScrollerSection menuTheme="light" className={styles['section']}>
-          <div className={styles['content']}>
-            <p>{content}</p>
-          </div>
-        </ScrollerSection>
+        {content && (
+          <ScrollerSection menuTheme="light" className={styles['section']}>
+            <div className={styles['content']}>
+              <p>{content}</p>
+            </div>
+          </ScrollerSection>
+        )}
+
+        {children}
 
         <Footer />
-      </Scroller>
-    </>
+      </Wrapper>
+    </div>
   )
 }
 

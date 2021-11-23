@@ -11,6 +11,10 @@
   margin-left: $padding-horizontal * 2;
   margin-top: $padding-vertical;
   width: 85%;
+
+  &__light {
+    border-bottom-color: $black;
+  }
 }
 
 .accordion-button {

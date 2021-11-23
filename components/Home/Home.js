@@ -3,17 +3,16 @@ import styles from './Home.module.scss'
 import { useTranslations } from 'use-intl'
 import classNames from 'classnames'
 import Scroller from '../Scroller'
-import Accordion from '../Accordion'
 import Footer from '../Layout/Footer'
 import imgBannerTwo from '../../public/images/bannerTwoHome.png'
 import imgBannerThree from '../../public/images/bannerThreeHome.png'
 import imgBannerFour from '../../public/images/bannerFourHome.png'
 import Banner from '../Banner'
+import FAQAccordion from '@/components/FAQAccordion'
 
 function Home() {
   const scroller = useRef(null)
   const translate = useTranslations('Home')
-  const [active, setActive] = useState('')
   const [page, setPage] = useState(0)
 
   const onPressPagination = (page) => scroller.current.goToPage(page)
@@ -91,6 +90,7 @@ function Home() {
         {bannerItems.map((b) => {
           return (
             <Banner
+              showGradient
               key={b.id}
               title={b.title}
               link={b.link}
@@ -100,35 +100,7 @@ function Home() {
           )
         })}
 
-        <div
-          className={styles['section']}
-          style={{ justifyContent: 'flex-end' }}
-        >
-          <p className={styles['section-subtitle']}>{translate('FAQ.title')}</p>
-
-          {faqItems.map((x) => {
-            const isActive = active === x.id
-            const activeClass = isActive ? 'active' : ''
-            const toggleAccordion = () => {
-              setActive(isActive ? '' : x.id)
-              // if (isActive) {
-              //   setActive('')
-              // } else {
-              //   setActive(x.id)
-              // }
-            }
-            return (
-              <Accordion
-                key={x.id}
-                id={x.id}
-                title={x.title}
-                content={x.content}
-                activeClass={activeClass}
-                toggleAccordion={toggleAccordion}
-              />
-            )
-          })}
-        </div>
+        <FAQAccordion showTitle faqItems={faqItems} />
 
         <Footer />
       </Scroller>
