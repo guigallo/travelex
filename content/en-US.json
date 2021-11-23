@@ -113,7 +113,9 @@
       "email": "E-Mail",
       "representativeEmail": "Representative's E-mail",
       "phone": "Phone",
-      "date": "Birthdate"
+      "date": "Birthdate",
+      "occupation": "Occupation",
+      "message": "Message"
     },
     "errors": {
       "name": "Name is required",
@@ -124,7 +126,9 @@
       "date": "Date is required",
       "phoneInvalid": "Invalid Phone",
       "emailInvalid": "Invalid E-mail",
-      "dateInvalid": "Invalid Date"
+      "dateInvalid": "Invalid Date",
+      "occupation": "Occupation is required",
+      "message": "Message is required"
     }
   },
   "Jobs": {

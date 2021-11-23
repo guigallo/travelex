@@ -113,7 +113,9 @@
       "email": "E-mail",
       "representativeEmail": "E-mail do representante",
       "phone": "Celular",
-      "date": "Data de nascimento"
+      "date": "Data de nascimento",
+      "occupation": "Ocupação",
+      "message": "Mensagem"
     },
     "errors": {
       "name": "Nome é requerido",
@@ -124,7 +126,9 @@
       "date": "Data de nascimento é requerida",
       "phoneInvalid": "Celular enválido",
       "emailInvalid": "E-mail inválido",
-      "dateInvalid": "Data inválida"
+      "dateInvalid": "Data inválida",
+      "occupation": "Ocupação é requerido",
+      "message": "Mensagem é requerido"
     }
   },
   "Jobs": {
