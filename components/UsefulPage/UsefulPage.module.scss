@@ -8,6 +8,11 @@
   top: 20vh;
   transform-origin: left center;
 
+  &__fixed {
+    height: 100vh;
+    position: relative;
+  }
+
   &__txt {
     @include config-transition-prop(margin-left);
 
@@ -35,6 +40,10 @@
     &__second-page {
       width: 0;
     }
+  }
+
+  &__hide-title {
+    opacity: 0 !important;
   }
 
   &__second-page {
