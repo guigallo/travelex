@@ -1,5 +1,9 @@
 @import '@/styles/theme';
 
+.page {
+  scroll-behavior: smooth;
+}
+
 .media {
   transform: translateX(-$padding-horizontal);
   width: calc(100% + 3em);

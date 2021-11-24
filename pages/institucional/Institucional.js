@@ -4,6 +4,7 @@ import Banner from '@/components/Banner'
 import Footer from '@/components/Layout/Footer'
 import Bicolumn from '@/components/Bicolumn'
 import ChangeThemeOnScroll from '@/components/ChangeThemeOnScroll'
+import useLockScrollFirstPage from '@/hooks/useLockScrollFirstPage'
 import styles from './Institucional.module.scss'
 import bannerInstitutional from '../../public/images/bannerInstitutional.png'
 import imgInstitutional from '../../public/images/imgInstitutional.png'
@@ -36,8 +37,10 @@ function InstitucionalContent({
 function Institucional() {
   const translate = useTranslations('About')
 
+  useLockScrollFirstPage()
+
   return (
-    <div>
+    <div className={styles['page']}>
       <ChangeThemeOnScroll theme="dark" />
       <Banner
         showGradient
