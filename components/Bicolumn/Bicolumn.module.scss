@@ -1,0 +1,55 @@
+@import '@/styles/theme';
+
+.title {
+  min-height: 50vh;
+  padding-top: $menu-height;
+
+  div {
+    font-size: 3em;
+    padding: $padding-vertical $padding-horizontal * 0.7;
+
+    @media (min-width: $min-width-sm) {
+      padding: $padding-vertical $padding-horizontal * 1.15;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $min-width-sm) {
+    flex-direction: row;
+  }
+
+  &__left {
+    color: $navy-blue;
+    font-family: Bebas Neue Regular;
+    font-size: 2em;
+    padding: $padding-vertical $padding-horizontal;
+
+    @media (min-width: $min-width-sm) {
+      padding-left: $padding-horizontal * 1.8;
+      padding-top: $padding-vertical;
+      width: 30%;
+    }
+
+    &-txt {
+      margin-bottom: 1.5rem;
+      position: sticky;
+      top: $menu-height;
+    }
+  }
+
+  &__right {
+    font-size: 1.8em;
+    padding: $padding-vertical $padding-horizontal;
+
+    @media (min-width: $min-width-sm) {
+      padding-left: $padding-horizontal * 2.6;
+      padding-right: $padding-horizontal * 6;
+      padding-top: $padding-vertical;
+      width: 70%;
+    }
+  }
+}

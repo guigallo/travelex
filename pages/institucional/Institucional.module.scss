@@ -1,9 +1,15 @@
 @import '@/styles/theme';
 
-.section {
-  height: 100vh;
-}
+.media {
+  transform: translateX(-$padding-horizontal);
+  width: calc(100% + 3em);
 
-.img-section {
-  padding-top: 6em;
+  @media (min-width: $min-width-sm) {
+    transform: unset;
+    width: 152.5%;
+  }
+
+  video {
+    width: 100%;
+  }
 }

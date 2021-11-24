@@ -12,6 +12,10 @@ const useBounceScroll = ({ callback, wait, preventDefault = false }) => {
   }
 
   useEffect(() => {
+    cb.current = callback
+  }, [callback])
+
+  useEffect(() => {
     const { x, y } = scrolling
 
     if (waiting.current || (!x && !y)) {
