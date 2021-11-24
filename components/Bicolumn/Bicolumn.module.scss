@@ -22,6 +22,15 @@
     flex-direction: row;
   }
 
+  &__header {
+    background-color: $white;
+    height: $menu-height;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
   &__left {
     color: $navy-blue;
     font-family: Bebas Neue Regular;

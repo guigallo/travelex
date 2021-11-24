@@ -4,6 +4,8 @@ import styles from './Bicolumn.module.scss'
 function Bicolumn({ id = '', title = '', subTitle = '', children }) {
   return (
     <div>
+      <div className={styles['container__header']} />
+
       <div id={id} className={styles['title']}>
         <Title mainTitle={title} />
       </div>
