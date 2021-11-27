@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Image from 'next/image'
 import { useTranslations } from 'use-intl'
 import Banner from '@/components/Banner'
@@ -34,6 +35,61 @@ function InstitucionalContent({
   )
 }
 
+function Carousel() {
+  const [currentItem, setCurrentItem] = useState(0)
+
+  const handleNext = () => setCurrentItem((v) => Math.min(2, v + 1))
+
+  return (
+    <div className={styles['carousel']}>
+      <div
+        className={styles['carousel__items']}
+        onClick={handleNext}
+        onPress={handleNext}
+        onKeyPress={() => {}}
+        role="button"
+        tabIndex={0}
+        style={{ transform: `translateX(-${currentItem * 100}vw)` }}
+      >
+        {/** TODO refactor this **/}
+        <div className={styles['carousel__items-item']}>
+          <Image src={imgInstitutional} alt="" objectFit="cover" />
+          <div className={styles['carousel__content']}>
+            <div className={styles['carousel__content-left']}>
+              <p>+300k</p>
+            </div>
+            <div className={styles['carousel__content-right']}>
+              <p>Novos investimentos no travelex bank em 2021</p>
+            </div>
+          </div>
+        </div>
+        <div className={styles['carousel__items-item']}>
+          <Image src={bannerInstitutional} alt="" objectFit="cover" />
+          <div className={styles['carousel__content']}>
+            <div className={styles['carousel__content-left']}>
+              <p>+300k</p>
+            </div>
+            <div className={styles['carousel__content-right']}>
+              <p>Novos investimentos no travelex bank em 2021</p>
+            </div>
+          </div>
+        </div>
+        <div className={styles['carousel__items-item']}>
+          <Image src={imgInstitutional} alt="" objectFit="cover" />
+          <div className={styles['carousel__content']}>
+            <div className={styles['carousel__content-left']}>
+              <p>+300k</p>
+            </div>
+            <div className={styles['carousel__content-right']}>
+              <p>Novos investimentos no travelex bank em 2021</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function Institucional() {
   const translate = useTranslations('About')
 
@@ -62,6 +118,8 @@ function Institucional() {
           extraText={false}
         />
       </Bicolumn>
+
+      <Carousel />
 
       <Bicolumn
         id="nossa-trajetoria"

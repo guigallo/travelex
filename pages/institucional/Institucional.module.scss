@@ -2,6 +2,7 @@
 
 .page {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
 .media {
@@ -10,10 +11,75 @@
 
   @media (min-width: $min-width-sm) {
     transform: unset;
-    width: 152.5%;
+    width: 130%;
   }
 
   video {
     width: 100%;
+  }
+}
+
+.carousel {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  scroll-snap-align: start;
+  width: 100%;
+
+  &__items {
+    display: flex;
+    transform: translateX(0);
+    transition: transform 1s;
+    will-change: transform;
+
+    &-item {
+      height: 100vh;
+      width: 100vw;
+
+      img {
+        height: 100vh;
+      }
+    }
+  }
+
+  &__content {
+    color: $navy-blue;
+    display: flex;
+    flex-direction: column;
+    font-family: Bebas Neue Regular;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+    top: $menu-height;
+    width: 100vw;
+    z-index: 1;
+
+    @media (min-width: $min-width-sm) {
+      flex-direction: row;
+    }
+
+    &-left {
+      font-size: 6em;
+      padding-left: 4rem;
+
+      @media (min-width: $min-width-sm) {
+        font-size: 8em;
+        padding: 0;
+        padding-left: 5rem;
+        width: 32%;
+      }
+    }
+
+    &-right {
+      font-size: 3em;
+      padding: $padding-vertical $padding-horizontal;
+
+      @media (min-width: $min-width-sm) {
+        flex: 1 1;
+        font-size: 4em;
+        padding: 5rem;
+        padding-right: 10rem;
+      }
+    }
   }
 }
