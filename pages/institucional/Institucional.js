@@ -40,6 +40,27 @@ function Carousel() {
 
   const handleNext = () => setCurrentItem((v) => Math.min(2, v + 1))
 
+  const items = [
+    {
+      id: 1,
+      bg: imgInstitutional,
+      left: '+300k',
+      right: 'Novos investimentos no travelex bank em 2021',
+    },
+    {
+      id: 2,
+      bg: bannerInstitutional,
+      left: '+300k',
+      right: 'Novos investimentos no travelex bank em 2021',
+    },
+    {
+      id: 3,
+      bg: imgInstitutional,
+      left: '+300k',
+      right: 'Novos investimentos no travelex bank em 2021',
+    },
+  ]
+
   return (
     <div className={styles['carousel']}>
       <div
@@ -51,40 +72,19 @@ function Carousel() {
         tabIndex={0}
         style={{ transform: `translateX(-${currentItem * 100}vw)` }}
       >
-        {/** TODO refactor this **/}
-        <div className={styles['carousel__items-item']}>
-          <Image src={imgInstitutional} alt="" objectFit="cover" />
-          <div className={styles['carousel__content']}>
-            <div className={styles['carousel__content-left']}>
-              <p>+300k</p>
-            </div>
-            <div className={styles['carousel__content-right']}>
-              <p>Novos investimentos no travelex bank em 2021</p>
-            </div>
-          </div>
-        </div>
-        <div className={styles['carousel__items-item']}>
-          <Image src={bannerInstitutional} alt="" objectFit="cover" />
-          <div className={styles['carousel__content']}>
-            <div className={styles['carousel__content-left']}>
-              <p>+300k</p>
-            </div>
-            <div className={styles['carousel__content-right']}>
-              <p>Novos investimentos no travelex bank em 2021</p>
+        {items.map(({ id, bg, left, right }) => (
+          <div key={id} className={styles['carousel__items-item']}>
+            <Image src={bg} alt="" objectFit="cover" />
+            <div className={styles['carousel__content']}>
+              <div className={styles['carousel__content-left']}>
+                <p>{left}</p>
+              </div>
+              <div className={styles['carousel__content-right']}>
+                <p>{right}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className={styles['carousel__items-item']}>
-          <Image src={imgInstitutional} alt="" objectFit="cover" />
-          <div className={styles['carousel__content']}>
-            <div className={styles['carousel__content-left']}>
-              <p>+300k</p>
-            </div>
-            <div className={styles['carousel__content-right']}>
-              <p>Novos investimentos no travelex bank em 2021</p>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   )
