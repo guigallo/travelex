@@ -37,6 +37,7 @@
       width: 100vw;
 
       img {
+        filter: blur(4px);
         height: 100vh;
       }
     }
