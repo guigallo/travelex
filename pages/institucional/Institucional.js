@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { useTranslations } from 'use-intl'
+import classNames from 'classnames'
 import Banner from '@/components/Banner'
 import Footer from '@/components/Layout/Footer'
 import Bicolumn from '@/components/Bicolumn'
@@ -9,6 +10,7 @@ import useLockScrollFirstPage from '@/hooks/useLockScrollFirstPage'
 import styles from './Institucional.module.scss'
 import bannerInstitutional from '../../public/images/bannerInstitutional.png'
 import imgInstitutional from '../../public/images/imgInstitutional.png'
+import imgNext from '../../public/images/next.png'
 
 function InstitucionalContent({
   text,
@@ -61,15 +63,12 @@ function Carousel() {
     },
   ]
 
+  const showNext = currentItem < items.length - 1
+
   return (
     <div className={styles['carousel']}>
       <div
         className={styles['carousel__items']}
-        onClick={handleNext}
-        onPress={handleNext}
-        onKeyPress={() => {}}
-        role="button"
-        tabIndex={0}
         style={{ transform: `translateX(-${currentItem * 100}vw)` }}
       >
         {items.map(({ id, bg, left, right }) => (
@@ -85,6 +84,20 @@ function Carousel() {
             </div>
           </div>
         ))}
+      </div>
+
+      <div
+        className={classNames(styles['carousel__next'], {
+          [styles['carousel__next-hidden']]: !showNext,
+          [styles['carousel__next-visible']]: showNext,
+        })}
+        onClick={handleNext}
+        onPress={handleNext}
+        onKeyPress={() => {}}
+        role="button"
+        tabIndex={0}
+      >
+        <Image src={imgNext} alt="" objectFit="cover" />
       </div>
     </div>
   )
