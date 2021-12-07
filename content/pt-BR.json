@@ -15,10 +15,20 @@
     "bannerFour": {
       "title": "Teste de título 4",
       "link": "/cadastro"
+    },
+    "FAQ": {
+      "questionOneTitle": "Novas linhas de crédito para clientes Travelex Partners Plus?",
+      "questionOne": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "questionTwoTitle": "Novas linhas de crédito para clientes Travelex Partners Plus?",
+      "questionTwo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "questionThreeTitle": "Novas linhas de crédito para clientes Travelex Partners Plus?",
+      "questionThree": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
     }
   },
   "FAQ": {
-    "questionOneTitle": "Novas linhas de crédito para clientes Travelex Partners Plus?",
+    "title": "Dúvidas Frequentes",
+    "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+    "questionOneTitle": "New lines of credit for Travelex Partners Plus customers?",
     "questionOne": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
     "questionTwoTitle": "Novas linhas de crédito para clientes Travelex Partners Plus?",
     "questionTwo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
