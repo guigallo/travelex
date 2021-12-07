@@ -9,13 +9,18 @@ import mainLogoColorful from '../../../public/images/TravelexLogo.png'
 import styles from './Menu.module.scss'
 
 function MenuLinks({ visible }) {
-  const { theme } = useMenuTheme()
+  const { theme, options } = useMenuTheme()
   const translate = useTranslations('Layout')
   const { locale, locales, route } = useRouter()
   const otherLocale = locales?.find((cur) => cur !== locale)
 
   return (
-    <div className={classNames(styles[`${visible}`], styles[theme])}>
+    <div
+      className={classNames(styles[`${visible}`], styles[theme])}
+      styles={{
+        ...(options.background ? { backgroundColor: options.background } : {}),
+      }}
+    >
       <div className={styles['menu-wrapper']}>
         <Link href="/">
           <a>
@@ -25,7 +30,7 @@ function MenuLinks({ visible }) {
                 styles[`menu-logo__${theme}`]
               )}
             >
-              {theme === 'dark' ? (
+              {theme === 'dark' || theme === 'white' ? (
                 <Image
                   src={mainLogoWhite}
                   alt="Travelex Logo Mobile"
@@ -51,15 +56,36 @@ function MenuLinks({ visible }) {
                 )}
               />
               <Link href="/institucional">
-                <a>{translate('menu.about')}</a>
+                <a
+                  className={classNames({
+                    [styles[`${theme}__link-active`]]:
+                      route === '/institucional',
+                  })}
+                >
+                  {translate('menu.about')}
+                </a>
               </Link>
 
               <Link href="/cambio/corporativo">
-                <a>{translate('menu.company')}</a>
+                <a
+                  className={classNames({
+                    [styles[`${theme}__link-active`]]:
+                      route === '/cambio/corporativo',
+                  })}
+                >
+                  {translate('menu.company')}
+                </a>
               </Link>
 
               <Link href="/cambio/pessoa-fisica">
-                <a>{translate('menu.personal')}</a>
+                <a
+                  className={classNames({
+                    [styles[`${theme}__link-active`]]:
+                      route === '/cambio/pessoa-fisica',
+                  })}
+                >
+                  {translate('menu.personal')}
+                </a>
               </Link>
 
               <a href="/blog" target="_blank">
