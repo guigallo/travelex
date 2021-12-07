@@ -22,17 +22,14 @@ $padding-vertical: 1.5em;
 $menu-height: 4.5em;
 
 // Transitions
-@mixin config-transition-prop($props...) {
-  $default-delay: 0.5s;
-  $default-duration: 0.5s;
-
+@mixin config-transition-prop($props, $delay: 0.5s, $duration: 0.5s) {
   $durations: ();
   @for $i from 1 through list.length($props) {
-    $durations: list.append($durations, $default-duration);
+    $durations: list.append($durations, $duration);
   }
 
   $transition: list.zip($props, $durations);
-  $transition-delay: $default-delay;
+  $transition-delay: $delay;
   $will-change: list.join((), $props, $separator: comma);
 
   // @debug '[transition]: ' + $transition;
