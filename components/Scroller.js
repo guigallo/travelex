@@ -11,12 +11,18 @@ import useBounceScroll from '@/hooks/useBounceScroll'
 
 // eslint-disable-next-line react/display-name
 const Scroller = forwardRef((props, ref) => {
-  const { children, onBeforePageScroll = undefined } = props
+  const {
+    children,
+    disableScroll = false,
+    onBeforePageScroll = undefined,
+    pages = undefined,
+  } = props
   const [isThemeInit, setTehemeInit] = useState(false)
   const [currentPage, setCurrentPage] = useState(0)
   const { changeTheme } = useMenuTheme()
 
   const totalPages = useMemo(() => {
+    if (pages) return pages - 1
     if (!Array.isArray(children)) return 1
 
     const calcLength = children.reduce((sum, c) => {
@@ -24,7 +30,7 @@ const Scroller = forwardRef((props, ref) => {
       return sum + 1
     }, 0)
     return calcLength
-  }, [children])
+  }, [children, pages])
 
   useImperativeHandle(ref, () => ({
     onNext() {
@@ -37,6 +43,7 @@ const Scroller = forwardRef((props, ref) => {
 
   const getNewPageNumber = (number) => {
     const newPage = Math.max(Math.min(totalPages, number), 0)
+    console.log({ newPage })
     return newPage
   }
 
@@ -59,6 +66,7 @@ const Scroller = forwardRef((props, ref) => {
 
   useBounceScroll({
     callback: (scrolling) => {
+      if (disableScroll) return
       const isToNext = scrolling.x + scrolling.y > 0
       const offset = isToNext ? 1 : -1
       setCurrentPage((v) => getNewPageNumber(v + offset))
