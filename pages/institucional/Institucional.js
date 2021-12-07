@@ -10,7 +10,7 @@ import useLockScrollFirstPage from '@/hooks/useLockScrollFirstPage'
 import styles from './Institucional.module.scss'
 import bannerInstitutional from '../../public/images/bannerInstitutional.png'
 import imgInstitutional from '../../public/images/imgInstitutional.png'
-import imgNext from '../../public/images/next.png'
+import imgNext from '../../public/images/seta.svg'
 
 function InstitucionalContent({
   text,
