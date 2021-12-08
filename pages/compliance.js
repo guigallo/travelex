@@ -1,11 +1,11 @@
 import { useTranslations } from 'use-intl'
-import UsefulPage from '@/components/UsefulPage'
+import UsefulPageLegacy from '@/components/UsefulPageLegacy'
 
 function Compliance() {
   const translate = useTranslations('Compliance')
 
   return (
-    <UsefulPage
+    <UsefulPageLegacy
       title={translate('title')}
       caption={translate('caption')}
       content={translate('content')}

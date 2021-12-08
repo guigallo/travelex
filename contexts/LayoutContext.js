@@ -4,6 +4,10 @@ function isObject(value) {
   return value && typeof value === 'object' && value.constructor === Object
 }
 
+function isObject(value) {
+  return value && typeof value === 'object' && value.constructor === Object
+}
+
 const LayoutContext = createContext(undefined)
 
 function LayoutProvider({ children }) {
