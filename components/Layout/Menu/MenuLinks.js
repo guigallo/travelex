@@ -14,10 +14,13 @@ function MenuLinks({ visible }) {
   const { locale, locales, route } = useRouter()
   const otherLocale = locales?.find((cur) => cur !== locale)
 
+  console.log(visible, options, 343, {
+    ...(options.background ? { backgroundColor: options.background } : {}),
+  })
   return (
     <div
       className={classNames(styles[`${visible}`], styles[theme])}
-      styles={{
+      style={{
         ...(options.background ? { backgroundColor: options.background } : {}),
       }}
     >
