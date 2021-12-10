@@ -37,6 +37,9 @@ function SubMenu({ menuHover, menuTextHover, subMenu, subMenuPadding }) {
             </a>
           </Link>
         ))}
+        {subMenu === CambiosTypes.PESSOA_FISICA && (
+          <div className={styles['submenu__links-empty']} />
+        )}
       </div>
     </div>
   )
@@ -47,6 +50,7 @@ function MenuLinks({ visible }) {
   const translate = useTranslations('Layout')
   const { locale, locales, route } = useRouter()
   const otherLocale = locales?.find((cur) => cur !== locale)
+  const [hover, setHover] = useState(null)
   const [subMenu, setSubmenu] = useState(null)
   const [menuHover, setMenuHover] = useState(false)
   const [menuTextHover, setMenuTextHover] = useState(false)
@@ -118,9 +122,17 @@ function MenuLinks({ visible }) {
               />
               <Link href="/institucional">
                 <a
-                  className={classNames({
+                  onMouseEnter={() => {
+                    setHover('institucional')
+                    setSubmenu(null)
+                  }}
+                  onMouseLeave={() => setHover(null)}
+                  onFocus={() => void 0}
+                  onBlur={() => void 0}
+                  className={classNames(styles['link'], {
                     [styles[`${theme}__link-active`]]:
                       route === '/institucional',
+                    [styles[`${theme}__link-hover`]]: hover === 'institucional',
                   })}
                 >
                   {translate('menu.about')}
@@ -130,15 +142,22 @@ function MenuLinks({ visible }) {
               <Link href="/cambio/corporativo">
                 <a
                   ref={corpRef}
-                  onMouseEnter={() =>
+                  onMouseEnter={() => {
+                    setHover(CambiosTypes.CORPORATIVO)
                     onMouseEnterText(CambiosTypes.CORPORATIVO)
-                  }
-                  onMouseLeave={() => setMenuTextHover(null)}
+                  }}
+                  onMouseLeave={() => {
+                    setHover(null)
+                    setMenuTextHover(null)
+                  }}
                   onFocus={() => void 0}
                   onBlur={() => void 0}
-                  className={classNames({
+                  className={classNames(styles['link'], {
                     [styles[`${theme}__link-active`]]:
                       route === '/cambio/corporativo',
+                    [styles[`${theme}__link-hover`]]:
+                      hover === CambiosTypes.CORPORATIVO ||
+                      subMenu === CambiosTypes.CORPORATIVO,
                   })}
                 >
                   {translate('menu.company')}
@@ -148,22 +167,43 @@ function MenuLinks({ visible }) {
               <Link href="/cambio/pessoa-fisica">
                 <a
                   ref={personRef}
-                  onMouseEnter={() =>
+                  onMouseEnter={() => {
+                    setHover(CambiosTypes.PESSOA_FISICA)
                     onMouseEnterText(CambiosTypes.PESSOA_FISICA)
-                  }
-                  onMouseLeave={() => setMenuTextHover(null)}
+                  }}
+                  onMouseLeave={() => {
+                    setHover(null)
+                    setMenuTextHover(null)
+                  }}
                   onFocus={() => void 0}
                   onBlur={() => void 0}
-                  className={classNames({
+                  className={classNames(styles['link'], {
                     [styles[`${theme}__link-active`]]:
                       route === '/cambio/pessoa-fisica',
+                    [styles[`${theme}__link-hover`]]:
+                      hover === CambiosTypes.PESSOA_FISICA ||
+                      subMenu === CambiosTypes.PESSOA_FISICA,
                   })}
                 >
                   {translate('menu.personal')}
                 </a>
               </Link>
 
-              <a href="/blog" target="_blank">
+              <a
+                href="https://www.travelexbank.com.br/blog/"
+                target="_blank"
+                rel="noreferrer"
+                onMouseEnter={() => {
+                  setHover('blog')
+                  setSubmenu(null)
+                }}
+                onMouseLeave={() => setHover(null)}
+                onFocus={() => void 0}
+                onBlur={() => void 0}
+                className={classNames(styles['link'], {
+                  [styles[`${theme}__link-hover`]]: hover === 'blog',
+                })}
+              >
                 {translate('menu.blog')}
               </a>
             </div>
@@ -179,7 +219,20 @@ function MenuLinks({ visible }) {
                 )}
               />
               <Link href="/cadastro">
-                <a>{translate('menu.openAccount')}</a>
+                <a
+                  onMouseEnter={() => {
+                    setHover('openAcc')
+                    setSubmenu(null)
+                  }}
+                  onMouseLeave={() => setHover(null)}
+                  onFocus={() => void 0}
+                  onBlur={() => void 0}
+                  className={classNames(styles['link'], {
+                    [styles[`${theme}__link-hover`]]: hover === 'openAcc',
+                  })}
+                >
+                  {translate('menu.openAccount')}
+                </a>
               </Link>
             </div>
           </div>
